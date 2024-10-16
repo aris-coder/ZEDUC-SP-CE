@@ -1,5 +1,6 @@
 import React from "react";
 import { Navbar, Nav, Button } from "react-bootstrap";
+import { Link } from "react-router-dom";
 import Style from "./style";
 import logotransparent from "../images/logotransparent.png";
 
@@ -15,8 +16,14 @@ const NavbarComponent = () => {
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav" className="jsutify-content-end">
                 <Nav className="ms-auto d-flex align-items-center">
-                    <Button variant="outline-light" className="rounded-btn mx-3"> Se connecter </Button>
-                    <Button variant="outline-light" className="rounded-btn mx-3"> S'inscrire </Button>
+                    <Link to='./connexion'>
+                        <Button variant="outline-light" className="rounded-btn mx-3"> Se connecter </Button>
+                    </Link>
+                    <Link to='./inscription'>
+                        <Button variant="outline-light" className="rounded-btn mx-3"> S'inscrire </Button>
+                    </Link>
+                    
+                    
                 </Nav>
             </Navbar.Collapse>
         </Navbar>

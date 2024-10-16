@@ -6,7 +6,7 @@ const MainComponent = () => {
     <>
         <Style/>
         <main className="main-content">
-            <h2>Nos atouts</h2>
+            <h2 style={{ fontFamily: 'Milonga, sans-serif', color: 'white' }}>Nos atouts</h2>
             <div className="atouts-list">
                 <div className="atout-item">NDOLÉ</div>
                 <div className="atout-item">Pilé Pommes</div>
