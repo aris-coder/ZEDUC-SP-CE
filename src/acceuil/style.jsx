@@ -57,11 +57,12 @@ const Style = () => {
                     }
 
                     .main-content {
+                    background: linear-gradient(180deg, rgba(14, 14, 14, 1) 31%, rgba(207, 189, 151, 1) 100%);
                     padding: 50px 20px;
-                    background-color: #fff;
                     z-index: 1;
                     position: relative;
                     }
+                    
 
                     .atouts-list {
                     display: flex;
