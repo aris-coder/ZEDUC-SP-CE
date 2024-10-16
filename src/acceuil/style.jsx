@@ -56,14 +56,6 @@ const Style = () => {
                         position: relative;
                     }
 
-                    .header-custom {
-                        color: white;
-                        text-align: center;
-                        padding: 150px 20px;
-                        z-index: 5;
-                        position: relative;
-                    }
-
                     .main-content {
                     padding: 50px 20px;
                     background-color: #fff;
