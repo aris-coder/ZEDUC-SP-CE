@@ -9,14 +9,9 @@ import pouletpanee from '../images/pouletpanee1.png';
 
 const MotDePasseOublie = () => {
   const [showPassword, setShowPassword] = useState(false);
-  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
-  };
-
-  const toggleConfirmPasswordVisibility = () => {
-    setShowConfirmPassword(!showConfirmPassword);
   };
 
   return (
@@ -92,27 +87,13 @@ const MotDePasseOublie = () => {
             <div className="row mb-5">
               <div className="col-md-6 mb-3 position-relative">
                 <label htmlFor="password" className="form-label">Mot de passe</label>
-                <input
-                  id="password"
-                  type={showPassword ? "text" : "password"}
-                  className="form-control rounded-pill"
-                  placeholder=""
-                />
-                <span className="password-eye" onClick={togglePasswordVisibility}>
-                  <i className={showPassword ? 'fas fa-eye-slash' : 'fas fa-eye'}></i>
-                </span>
+                <input id="password" type={showPassword ? "text" : "password"} className="form-control rounded-pill" placeholder=""/>
+                <i className={showPassword ? 'fas fa-eye-slash password-eye' : 'fas fa-eye password-eye'} onClick={togglePasswordVisibility} style={{ cursor: 'pointer', position: 'absolute', right: '20px', top: '45px', zIndex: 2 }}></i>
               </div>
               <div className="col-md-6 mb-3 position-relative">
                 <label htmlFor="confirmPassword" className="form-label">Confirmer le mot de passe</label>
-                <input
-                  id="confirmPassword"
-                  type={showConfirmPassword ? "text" : "password"}
-                  className="form-control rounded-pill"
-                  placeholder=""
-                />
-                <span className="password-eye" onClick={toggleConfirmPasswordVisibility}>
-                  <i className={showConfirmPassword ? 'fas fa-eye-slash' : 'fas fa-eye'}></i>
-                </span>
+                <input id="password" type={showPassword ? "text" : "password"} className="form-control rounded-pill" placeholder=""/>
+                <i className={showPassword ? 'fas fa-eye-slash password-eye' : 'fas fa-eye password-eye'} onClick={togglePasswordVisibility} style={{ cursor: 'pointer', position: 'absolute', right: '20px', top: '45px', zIndex: 2 }}></i>
               </div>
             </div>
             <div className="text-center mb-4">
