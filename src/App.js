@@ -1,8 +1,8 @@
 import React from 'react';
 import {BrowserRouter as Router, Route, Routes} from 'react-router-dom';
-import Inscription from './autentification/inscription.jsx';
-import Connexion from './autentification/connexion.jsx';
-import MotDePasseOublie from './autentification/mot_de_passe_oubli.jsx';
+import Inscription from './authentification/inscription.jsx';
+import Connexion from './authentification/connexion.jsx';
+import MotDePasseOublie from './authentification/mot_de_passe_oubli.jsx';
 
 function App() {
   return (
