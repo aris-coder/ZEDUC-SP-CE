@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import Style from './style';
+import Style from './styleAcceuil';
 
 const HeaderComponent = () => {
   const [fontSizeWelcome, setFontSizeWelcome] = useState('50px');

@@ -7,7 +7,7 @@ import FooterComponent from './footerComponent';
 const HomePage = () => {
   return (
     <>
-      <HeroSection />
+      <HeroSection/>
       <MainComponent />
       <FooterComponent />
     </>

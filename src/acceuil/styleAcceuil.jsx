@@ -57,7 +57,7 @@ const Style = () => {
                     }
 
                     .main-content {
-                    background: linear-gradient(180deg, rgba(14, 14, 14, 1) 31%, rgba(207, 189, 151, 1) 100%);
+                    background: linear-gradient(180deg, rgba(14, 14, 14, 1) 5%, rgba(207, 189, 151, 1) 100%);
                     padding: 50px 20px;
                     z-index: 1;
                     position: relative;
@@ -71,13 +71,12 @@ const Style = () => {
                     }
 
                     .atout-item {
-                    background-color: #f8f9fa;
-                    border: 1px solid #dee2e6;
-                    border-radius: 5px;
+                    background: linear-gradient(180deg, rgba(126, 115, 92, 1) 30%, rgba(207, 189, 151, 1) 100%);
+                    border-radius: 50px;
                     padding: 20px;
                     text-align: center;
                     flex: 1;
-                    margin: 0 10px;
+                    margin: 20px 40px;
                     }
 
                     /* Style pour le footer */

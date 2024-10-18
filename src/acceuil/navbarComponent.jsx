@@ -1,7 +1,7 @@
 import React from "react";
 import { Navbar, Nav, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import Style from "./style";
+import Style from "./styleAcceuil";
 import logotransparent from "../images/logotransparent.png";
 
 const NavbarComponent = () => {
