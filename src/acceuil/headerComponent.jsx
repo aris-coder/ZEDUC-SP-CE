@@ -16,10 +16,10 @@ const HeaderComponent = () => {
       }
     };
 
-    handleResize(); // Appel initial
+    handleResize(); 
     window.addEventListener('resize', handleResize);
 
-    return () => window.removeEventListener('resize', handleResize); // Nettoyage
+    return () => window.removeEventListener('resize', handleResize); 
   }, []);
 
   return (
