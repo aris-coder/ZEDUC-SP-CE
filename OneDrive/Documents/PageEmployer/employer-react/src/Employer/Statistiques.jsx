@@ -4,6 +4,7 @@ import Footers from "./FooterEmployer";
 import Style from "./Style";
 import PlatI from '../Images/PlatI.png';
 import PlatII from '../Images/PlatII.png';
+import Search from '../Images/Search.png';
 
 const Stats = () =>{
     return(
@@ -15,14 +16,11 @@ const Stats = () =>{
             <main >
                 <img src={PlatI} class="img-fluid" className='PLATI'/>
                 <img src={PlatII} class="img-fluid" className='PLATII'/>
-                <div className="bienvenue_message_employé" style={{fontSize:'35px'}}>
-                    <p>ZEDUC SP@CE</p><p style={{marginLeft:'-40px'}}>Statistiques de ventes</p><p>Hebdomadaire</p>
-                </div>
-                <div className="Semaine_trierpar"> 
-                    <p style={{paddingTop:'5px',paddingLeft:'5px',fontSize:'17px',fontFamily:'Milonga, sans-serif'}}>Semaine 1</p>
+                <div className="bienvenue_message_employé" style={{fontSize:'50px'}}>
+                    <p>ZEDUC SP@CE</p><p style={{marginLeft:'-100px',fontSize:'40px'}}>Statistiques de ventes Hebdomadaire</p>
                 </div>
                 <div className="date-range"> 
-                    <p style={{paddingTop:'5px',paddingLeft:'5px',fontSize:'17px',fontFamily:'Milonga, sans-serif'}}>Du:<span style={{ marginLeft: '10px' }}>XX<span style={{ marginLeft: '10px' }}></span>/XX<span style={{ marginLeft: '10px' }}></span>/XXXX</span> <span style={{ marginLeft: '25px' }}></span> AU: <span style={{ marginLeft: '10px' }}>XX<span style={{ marginLeft: '10px' }}></span>/XX<span style={{ marginLeft: '10px' }}></span>/XXXX</span></p>
+                    <p style={{paddingTop:'5px',paddingLeft:'5px',fontSize:'22px',fontFamily:'Milonga, sans-serif'}}>Du: <input type="text" placeholder="La date de DEBUT" style={{border:'1px solid #ccc',borderRadius:'10px', backgroundColor:'#D3D3D3'}}></input>  AU: <input type="text" placeholder="La date de FIN" style={{border:'1px solid #ccc',borderRadius:'10px', backgroundColor:'#D3D3D3'}}></input><img src={Search} style={{width:'45px'}}/></p>
                 </div>
                 <div className="total-ventes"> 
                     <p style={{paddingTop:'10px',fontSize:'20px',fontFamily:'Milonga, sans-serif'}}>TOTAL DES VENTES:</p>
