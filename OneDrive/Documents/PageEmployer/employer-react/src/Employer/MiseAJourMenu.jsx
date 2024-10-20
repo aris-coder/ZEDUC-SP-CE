@@ -4,8 +4,70 @@ import Footers from "./FooterEmployer";
 import Style from "./Style";
 import PlatI from '../Images/PlatI.png';
 import PlatII from '../Images/PlatII.png';
+import menu from '../Images/Menutest.png';
+
+const CardMenu = ({ title, price, description, imageUrl, isOutOfStock }) => {
+    return (
+        <div className="col-4 col-lg-4 mb-4">
+            <div className="card h-100" style={{ borderRadius: '20px', backgroundColor: '#c5b083' }}>
+                <img src={imageUrl} className="card-img-top" alt={title} 
+                style={{ borderTopLeftRadius: '20px', borderTopRightRadius: '20px', margin: '5px auto', width: '100%', height: 'auto', maxWidth: '300px' }} 
+                />
+                <div className="card-body text-center">
+                <h5 className="card-title" style={{ fontSize: '1.1rem' }}>{title} <span>{price}fcfa</span></h5>
+                <p className="card-text" style={{ fontSize: '0.9rem' }}><strong>Accompagnement:</strong> {description}</p>
+                {isOutOfStock && (
+                    <button className="btn w-100" enabled 
+                    style={{ backgroundColor: '#da0008', color: 'white', fontFamily: 'Milonga, serif' }}>
+                    ÉPUISÉ
+                    </button>
+                )}
+                </div>
+            </div>
+        </div>
+
+    );
+};
 
 const MiseJourM = () =>{
+    const menuItems = [
+        {
+          title: 'Okok salé',
+          price: '1000',
+          description: 'baton de manioc / tubercule de manioc',
+          imageUrl: menu,
+          isOutOfStock: true
+        },
+        {
+            title: 'Poulet pané',
+            price: '1500',
+            description: 'frites de pommes / tubercule de manioc',
+            imageUrl: menu,
+            isOutOfStock: false
+        },
+        {
+            title: 'Poulet pané',
+            price: '1500',
+            description: 'frites de pommes / tubercule de manioc',
+            imageUrl: menu,
+            isOutOfStock: true
+        },
+        {
+            title: 'Poulet pané',
+            price: '1500',
+            description: 'frites de pommes / tubercule de manioc',
+            imageUrl: menu,
+            isOutOfStock: true
+        },
+        {
+            title: 'Poulet pané',
+            price: '1500',
+            description: 'frites de pommes / tubercule de manioc',
+            imageUrl: menu,
+            isOutOfStock: false
+        },     
+    ]
+
     return(
         <div>
             <Style/>
@@ -18,60 +80,21 @@ const MiseJourM = () =>{
                 <div className="bienvenue_message_employé">
                 ZEDUC SP@CE <br/><p style={{marginLeft:'-20px'}}>Mise à jour des plats</p> 
                 </div>
-                <div className="Modifier" style={{marginTop:'-10px'}}> 
-                    <p className="fw-bold" style={{paddingTop:'5px',paddingLeft:'40px',fontSize:'17px',fontFamily:'Milonga, serif'}}>Modifier</p>
-                </div>
-                <p className="fw-bold" style={{paddingLeft:'25px',paddingTop:'500px',fontSize:'20px',fontFamily:'Milonga, serif',color:'white'}}>Menu du jour</p>
-                <div className="container  menujour">
-                    <br/>
+                <p className="fw-bold" style={{paddingLeft:'25px',paddingTop:'480px',fontSize:'20px',fontFamily:'Milonga, serif',color:'white'}}>Mettre à jour le menu </p>
+                <p className="fw-bold" style={{paddingLeft:'25px',paddingTop:'5px',fontSize:'15px',fontFamily:'Milonga, serif',color:'black'}}>Cliquer sur le boutton épuisé pour mettre à jour le menu. les plats qui ne sont plus <br/> disponible disparaîtrons du menu.  </p>
+
+                <div className="container-fluid" style={{position:'absolute',top:'620px'}}>
                     <div className="row">
-                        <div className="col">
-                            <div style={{display: 'flex', justifyContent:'space-between' ,alignItems:'center',paddingLeft:'65px'}}>
-                                <p style={{fontFamily:'Milonga, serif'}}>OKOK SALE</p>
-                                <p style={{fontFamily:'Be Vietnam Pro, serif', paddingRight:'150px',fontSize:'18px'}}>1000/1500</p>
-                            </div>
-                        <div className='ligne' style={{ borderBottom: '2px solid black'}}></div>
-                        </div>
-                    </div>
-                    <br/>
-                    <div className="row">
-                        <div className="col">
-                            <div style={{display: 'flex', justifyContent:'space-between' ,alignItems:'center',paddingLeft:'65px'}}>
-                                <p style={{fontFamily:'Milonga, serif'}}>OKOK SALE</p>
-                                <p style={{fontFamily:'Be Vietnam Pro, serif', paddingRight:'150px',fontSize:'18px'}}>1000/1500</p>
-                            </div>
-                        <div className='ligne' style={{ borderBottom: '2px solid black'}}></div>
-                        </div>
-                    </div>
-                    <br/>
-                    <div className="row">
-                        <div className="col">
-                            <div style={{display: 'flex', justifyContent:'space-between' ,alignItems:'center',paddingLeft:'65px'}}>
-                                <p style={{fontFamily:'Milonga, serif'}}>OKOK SALE</p>
-                                <p style={{fontFamily:'Be Vietnam Pro, serif', paddingRight:'150px',fontSize:'18px'}}>1000/1500</p>
-                            </div>
-                        <div className='ligne' style={{ borderBottom: '2px solid black'}}></div>
-                        </div>
-                    </div>
-                    <br/>
-                    <div className="row">
-                        <div className="col">
-                            <div style={{display: 'flex', justifyContent:'space-between' ,alignItems:'center',paddingLeft:'65px'}}>
-                                <p style={{fontFamily:'Milonga, serif'}}>OKOK SALE</p>
-                                <p style={{fontFamily:'Be Vietnam Pro, serif', paddingRight:'150px',fontSize:'18px'}}>1000/1500</p>
-                            </div>
-                        <div className='ligne' style={{ borderBottom: '2px solid black'}}></div>
-                        </div>
-                    </div>
-                    <br/>
-                    <div  className="row">
-                        <div className="col">
-                        <div style={{display: 'flex', justifyContent:'space-between' ,alignItems:'center',paddingLeft:'65px'}}>
-                            <p style={{fontFamily:'Milonga, serif'}}>OKOK SALE</p>
-                            <p style={{fontFamily:'Be Vietnam Pro, serif', paddingRight:'150px',fontSize:'18px'}}>1000/1500</p>
-                        </div>
-                        <div className='ligne' style={{ borderBottom: '2px solid black'}}></div>
-                        </div>
+                        {menuItems.map((item, index) => (
+                        <CardMenu
+                            key={index}
+                            title={item.title}
+                            price={item.price}
+                            description={item.description}
+                            imageUrl={item.imageUrl}
+                            isOutOfStock={item.isOutOfStock}
+                        />
+                        ))}
                     </div>
                 </div>
             </main>
