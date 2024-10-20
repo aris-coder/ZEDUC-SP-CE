@@ -12,7 +12,7 @@ const Style = () => {
                     }
 
                     body{
-                        min-height: 230vh;
+                        min-height: 268vh;
                         background-image: linear-gradient(to bottom ,#000000 -20%, #685F4C, #CFBD97);
                     }
 
@@ -215,7 +215,7 @@ const Style = () => {
                         background-image: linear-gradient(to bottom, #BAAA88 40.5%, #69604D 100%);
                         width: 664px;
                         height: 200px;
-                        top:700px;
+                        top:942px;
                         border-top: 1px solid #CFBD97;
                     }
                     @media (min-width: 768px) {
@@ -336,7 +336,7 @@ const Style = () => {
                         position: absolute;
                         align-self: center;
                         top: 160px;
-                        left: 330px;
+                        left: 370px;
                         font-family: "Milonga", serif;
                         color: white;
                         font-size: 30px;
@@ -346,10 +346,10 @@ const Style = () => {
                             position: absolute;
                             align-self: center;
                             top: 200px;
-                            left: 550px;
+                            left: 450px;
                             font-family: "Milonga", serif;
                             color: white;
-                            font-size: 35px;
+                            font-size: 60px;
                     }
                     }
 
@@ -384,7 +384,7 @@ const Style = () => {
 
                     .commande_attente{
                         position: absolute;
-                        top: 420px;
+                        top: 690px;
                         left: 5px;
                         display: grid;
                         height: 40px;
@@ -414,14 +414,14 @@ const Style = () => {
                         background-image: linear-gradient(to top, #D9D9D9, #CFBD97);
                         height: 200px;
                         width: 650px;
-                        top: 455px;
+                        top: 725px;
                         left: 5px;
                         border-radius: 10px;
                     }
                     @media (min-width: 768px) {
                             .commande_attente{
                             position: absolute;
-                            top: 450px;
+                            top: 730px;
                             left: 240px;
                             display: grid;
                             height: 40px;
@@ -449,90 +449,13 @@ const Style = () => {
                             display: grid;
                             height: 100vh;
                             background-image: linear-gradient(to top, #D9D9D9, #CFBD97);
-                            height: 200px;
-                            width: 950px;
-                            top: 485px;
-                            left: 240px;
-                            border-radius: 10px;
-                        }
-                    }
-
-
-                    .plat_jour{
-                        position: absolute;
-                        top: 690px;
-                        left: 5px;
-                        display: grid;
-                        height: 40px;
-                        width: 650px;
-                        background-color: rgba(0, 0, 0, 0.5);
-                        color:black;
-                        text-align: center;
-                        font-size: 25px;
-                        font-family: "Milonga", serif;
-                        border-radius: 5px;
-                    }
-                    .voir_plusplat_employé{
-                        position: relative;
-                        top:-30px;
-                        left: 565px;
-                        border-radius: 5px;
-                        height: 20px;
-                        width: 80px;
-                        font-size: 15px;
-                        font-family: Microsoft Tai Le, serif;
-                        text-align: center;
-                    }
-                    .plat_jour_info{
-                        position: absolute;
-                        display: grid;
-                        height: 100vh;
-                        background-image: linear-gradient(to top, #D9D9D9, #CFBD97);
-                        height: 200px;
-                        width: 650px;
-                        top: 725px;
-                        left: 5px;
-                        border-radius: 10px;
-                    }
-                    @media (min-width: 768px) {
-                        .plat_jour{
-                            position: absolute;
-                            top: 730px;
-                            left: 240px;
-                            display: grid;
-                            height: 40px;
-                            width: 950px;
-                            background-color: rgba(0, 0, 0, 0.5);
-                            color:black;
-                            text-align: center;
-                            font-size: 30px;
-                            font-family: "Milonga", serif;
-                            border-radius: 5px;
-                        }
-                        .voir_plusplat_employé{
-                            position: relative;
-                            top:-35px;
-                            left: 840px;
-                            border-radius: 5px;
-                            height: 20px;
-                            width: 80px;
-                            font-size: 15px;
-                            font-family: Microsoft Tai Le, serif;
-                            text-align: center;
-                        }
-                        .plat_jour_info{
-                            position: absolute;
-                            display: grid;
-                            height: 100vh;
-                            background-image: linear-gradient(to top, #D9D9D9, #CFBD97);
-                            height: 200px;
+                            height: 245px;
                             width: 950px;
                             top: 765px;
                             left: 240px;
                             border-radius: 10px;
                         }
                     }
-
 
                     .réclamation_en_attente{
                         position: absolute;
@@ -573,7 +496,7 @@ const Style = () => {
                     @media (min-width: 768px) {
                         .réclamation_en_attente{
                             position: absolute;
-                            top: 1000px;
+                            top: 1050px;
                             left: 240px;
                             display: grid;
                             height: 40px;
@@ -601,9 +524,9 @@ const Style = () => {
                             display: grid;
                             height: 100vh;
                             background-image: linear-gradient(to top, #D9D9D9, #CFBD97);
-                            height: 200px;
+                            height: 245px;
                             width: 950px;
-                            top: 1035px;
+                            top: 1085px;
                             left: 240px;
                             border-radius: 10px;
                         }
@@ -623,16 +546,6 @@ const Style = () => {
                     .LienMenu{
                         width: 205px;
                     }
-                    
-                    .Semaine_trierpar{
-                        left:15px;
-                        background-color:#CFBD97;
-                        width:140px;
-                        height:40px;
-                        border-radius:5px; 
-                        position:absolute; 
-                        top:550px; 
-                    }
 
                     .total-ventes {
                         background-color: #CFBD97;
@@ -648,13 +561,12 @@ const Style = () => {
                     }
 
                     .date-range {
-                        background-color: #CFBD97;
-                        width: 440px;
+                        width: 650px;
                         height: 40px;
                         border-radius: 5px;
                         position: absolute;
                         top: 550px;
-                        left: 200px;
+                        left: 10px;
                     }
 
                     .white-box {
@@ -684,18 +596,17 @@ const Style = () => {
                         height: 50px;
                         border-radius: 5px;
                         position: absolute;
-                        top: 610px;
+                        top: 620px;
                         left: 100px;
                     }
 
                     .date-range {
-                        background-color: #CFBD97;
-                        width: 440px;
+                        width: 670px;
                         height: 40px;
                         border-radius: 5px;
                         position: absolute;
-                        top: 550px;
-                        left: 700px;
+                        top: 520px;
+                        left: 95px;
                     }
 
                     .white-box {
@@ -704,7 +615,7 @@ const Style = () => {
                         height: 600px;
                         border-radius: 5px;
                         position: absolute;
-                        top: 680px;
+                        top: 710px;
                         left: 100px;
                     }}
 
@@ -724,43 +635,35 @@ const Style = () => {
                         left:15px;
                         }
                     }
-                    
-                    .Modifier{
-                        background-color:#CFBD97;
-                        width:140px;
-                        height:40px;
-                        border-radius:5px; 
-                        position:absolute; 
-                        top:480px; 
-                        left:480px;
-                    }
-                    @media (min-width: 768px) {
-                        .Modifier{
-                            background-color:#CFBD97;
-                            width:140px;
-                            height:40px;
-                            border-radius:5px; 
-                            position:absolute; 
-                            top:500px; 
-                            left:1140px;
-                        }
-                    }
 
                     .menujour{
                         position:absolute;
-                        background-image:linear-gradient(to left, #CFBD97 0%, #69604D 100%);
+                        background-image:linear-gradient(to bottom, #CFBD97 0%, #69604D 100%);
                         border-radius:10px;
-                        margin-top:25px;
-                        left: 75px;
-                        height: 340px;
+                        left: 5px;
+                        height: 245px;
+                        top: 420px;
+                        width: 950px;
                     }
+                    @media (min-width: 768px) {
+                        .menujour{
+                        position:absolute;
+                        background-image:linear-gradient(to bottom, #CFBD97 0%, #69604D 100%);
+                        border-radius:10px;
+                        left: 240px;
+                        height: 245px;
+                        top: 450px;
+                        width: 950px;
+                        }
+                    }
+
+
                     .ligne{
                         position:relative;
                         left: 20px;
                         top: -10px;
                         width:95%;
                     }
-
                 `}
         </style>
     );
