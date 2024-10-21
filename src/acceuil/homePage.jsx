@@ -1,4 +1,3 @@
-// HomePage.js
 import React from 'react';
 import HeroSection from './heroSection';
 import MainComponent from './mainComponent';

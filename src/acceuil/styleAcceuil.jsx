@@ -72,7 +72,7 @@ const Style = () => {
 
                     .atout-item {
                     background: linear-gradient(180deg, rgba(126, 115, 92, 1) 30%, rgba(207, 189, 151, 1) 100%);
-                    border-radius: 50px;
+                    border-radius: 50px; 
                     padding: 20px;
                     text-align: center;
                     flex: 1;

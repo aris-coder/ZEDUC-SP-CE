@@ -4,7 +4,7 @@ import { Navbar, Nav, Dropdown } from 'react-bootstrap';
 import logo from '../images/logo.png';
 import basketsee from '../images/basketsee.png';
 import user from '../images/user.png';
-import Style from './styleEtudiant'; 
+import Style from './styles/styleEtudiant'; 
 
 const NavbarEtudiant = () => {
   return (
