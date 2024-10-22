@@ -30,7 +30,7 @@ const jeuxData = [
 const MainComponent = () => {
   return (
     <>
-      <main className="main-content">
+      <main className="main-content" >
         <HeaderEtudiant />
 
         {/* Menu du jour */}

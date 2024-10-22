@@ -41,11 +41,13 @@ const Style = () => {
           display: flex;
           justify-content: center; 
           align-items: center;
-          max-width: 1200px;
+          max-width: 9000px;
           margin: 0 auto;
           position: relative;
           padding: 20px; 
+          overflow: hidden;
         }
+         
 
         .header-image {
           width: 250px;
