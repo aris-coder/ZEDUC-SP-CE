@@ -9,6 +9,7 @@ import AcceuilEtudiant from './pagesEtudiant/acceuilEtudiant.jsx';
 import ReclamationEtudiantPage from './EtudiantReclamation/pageReclamationEtudiant.jsx';
 import PanierEtudiantPage from './panier/panierEtudiantPage.jsx';
 import CommandeEtudiantPage from './EtudiantCommande/pageCommadeEtudiant.jsx';
+import MeilleursClientsPage from './meilleurClients/pageMeilleursClients.jsx';
 // import 'bootstrap/dist/css/bootstrap.min.css';
 
 
@@ -29,9 +30,9 @@ function App() {
         
         <Route path='/acceuil_etudiant' element={<AcceuilEtudiant />} />
         <Route path='/reclamation' element={<ReclamationEtudiantPage />} />
-        <Route path='/panier_etudiant_page' element={<PanierEtudiantPage />} /> */}
-        <Route path='/' element={<CommandeEtudiantPage />} />
-
+        <Route path='/panier_etudiant_page' element={<PanierEtudiantPage />} />
+        <Route path='/command_etudiant_page' element={<CommandeEtudiantPage />} /> */}
+        <Route path='/' element={<MeilleursClientsPage />} />
       </Routes>
     </Router>
   );
