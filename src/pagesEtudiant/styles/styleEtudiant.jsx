@@ -46,6 +46,7 @@ const Style = () => {
           position: relative;
           padding: 20px; 
           overflow: hidden;
+          color: white;
         }
          
 

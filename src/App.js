@@ -8,6 +8,7 @@ import HelpPage from './informations/aide.jsx';
 import AcceuilEtudiant from './pagesEtudiant/acceuilEtudiant.jsx';
 import ReclamationEtudiantPage from './EtudiantReclamation/pageReclamationEtudiant.jsx';
 import PanierEtudiantPage from './panier/panierEtudiantPage.jsx';
+import CommandeEtudiantPage from './EtudiantCommande/pageCommadeEtudiant.jsx';
 // import 'bootstrap/dist/css/bootstrap.min.css';
 
 
@@ -27,8 +28,9 @@ function App() {
         <Route path='/help' element={<HelpPage />}/>
         
         <Route path='/acceuil_etudiant' element={<AcceuilEtudiant />} />
-        <Route path='/Reclamation' element={<ReclamationEtudiantPage />} /> */}
-        <Route path='/' element={<PanierEtudiantPage />} />
+        <Route path='/reclamation' element={<ReclamationEtudiantPage />} />
+        <Route path='/panier_etudiant_page' element={<PanierEtudiantPage />} /> */}
+        <Route path='/' element={<CommandeEtudiantPage />} />
 
       </Routes>
     </Router>
