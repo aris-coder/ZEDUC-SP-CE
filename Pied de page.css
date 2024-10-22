@@ -1,0 +1,33 @@
+.footer {
+    background: linear-gradient(180deg, #0E0E0E 15%, #CFBD97 100%);
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+  
+  .footer h4 {
+    font-family: 'Milonga', sans-serif;
+    font-size: 18px;
+  }
+  
+  .footer ul {
+    padding: 0;
+    list-style-type: none;
+  }
+  
+  .footer ul li a {
+    color: #fff;
+    text-decoration: none;
+  }
+  
+  .footer ul li a:hover {
+    color: #BAAA88; /* Change la couleur au survol */
+  }
+  
+  .footer img {
+    margin-bottom: 10px;
+  }
+  
+  .footer address {
+    font-style: normal;
+  }
+  
