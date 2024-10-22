@@ -21,18 +21,20 @@ function App() {
     <Router>
       <Routes>
         
-        {/* <Route path='/' element={<HomePage />} />
+        {/* <Route path='/' element={<HomePage />} /> */}
+        
         <Route path='/inscription' element={<Inscription />} />
         <Route path='/connexion' element={<Connexion />} />
         <Route path='/mot_de_passe_oubli' element={<MotDePasseOublie />} />
         <Route path='/about' element={<AboutPage />}/>
         <Route path='/help' element={<HelpPage />}/>
         
+        <Route path='/' element={<AcceuilEtudiant />} />
         <Route path='/acceuil_etudiant' element={<AcceuilEtudiant />} />
         <Route path='/reclamation' element={<ReclamationEtudiantPage />} />
         <Route path='/panier_etudiant_page' element={<PanierEtudiantPage />} />
-        <Route path='/command_etudiant_page' element={<CommandeEtudiantPage />} /> */}
-        <Route path='/' element={<MeilleursClientsPage />} />
+        <Route path='/command_etudiant_page' element={<CommandeEtudiantPage />} />
+        <Route path='/meilleurs_clients' element={<MeilleursClientsPage />} />
       </Routes>
     </Router>
   );

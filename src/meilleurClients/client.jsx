@@ -4,7 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 function Clients() {
 
     const pageStyle = {
-        background: 'linear-gradient(to top, #CFBD97, #69604D)',
+        background: 'linear-gradient(180deg, rgba(14, 14, 14, 1) 0%, rgba(207, 189, 151, 1) 100%)',
         minHeight: '100vh',
         display: 'flex',
         justifyContent: 'center',

@@ -5,7 +5,7 @@ import './styles/styleEtudiant';
 
 const HeaderEtudiant = () => {
   return (
-    <header className="header-etudiant">
+    <header className="header-etudiant"  >
       <div className="container header-container position-relative">
         <img src={image1} alt="Dish 1" className="header-image rounded-circle image1 position-absolute" />
 

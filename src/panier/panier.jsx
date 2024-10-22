@@ -58,7 +58,7 @@ function Panier() {
     };
 
     return (
-        <div style={{ background: 'linear-gradient(to top, #CFBD97, #69604D)' }} className="container-fluid">
+        <div style={{ background: 'linear-gradient(180deg, rgba(14, 14, 14, 1) 0%, rgba(207, 189, 151, 1) 100%)' }} className="container-fluid">
             <HeaderEtudiant />
             <div className="row d-flex justify-content-center align-items-center" style={{ marginTop: '90px' }}>
                 <div className="col d-flex justify-content-center align-items-center" style={{ marginBottom: '10px' }}>
@@ -112,7 +112,7 @@ function Panier() {
             <div className="row d-flex justify-content-center align-items-center" style={{ marginTop: '15px', paddingBottom: '50px' }}>
                 <div className="col d-flex justify-content-center align-items-center">
                     <label style={{ marginRight: '10px', color: 'white', fontFamily: 'milonga' }}>{totalAmount} fcfa</label>
-                    <button style={{ width: '100px', borderRadius: '15px', backgroundColor: '#69604C', borderColor: '#69604C', fontFamily: 'milonga' }} onClick={handlePayClick}>
+                    <button style={{ width: '100px', borderRadius: '15px', backgroundColor: '#69604C', borderColor: '#69604C', fontFamily: 'milonga', color: 'white'}} onClick={handlePayClick}>
                         Payer ({articleCount})
                     </button>
                 </div>

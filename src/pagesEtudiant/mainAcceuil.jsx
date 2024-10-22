@@ -156,7 +156,7 @@ const MainComponent = () => {
 
         /* Style général pour le contenu principal */
         .main-content {
-          // background: linear-gradient(180deg, rgba(14, 14, 14, 1) 1%, rgba(207, 189, 151, 1) 0%);
+          background: 'linear-gradient(180deg, rgba(14, 14, 14, 1) 0%, rgba(207, 189, 151, 1) 100%)';
           padding: 1px ;
           z-index: 1;
           position: relative;

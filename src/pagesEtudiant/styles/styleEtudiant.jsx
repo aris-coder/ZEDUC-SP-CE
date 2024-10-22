@@ -16,17 +16,27 @@ const Style = () => {
           background-color: #000;
           padding: 10px;
           border-bottom: 1px solid white;
+           min-height:20px;
         }
 
         .navLink {
           color: white;
           font-size: 18px;
           margin-right: 20px;
+          text-decoration: none;
         }
 
         .navLink:hover {
           color: #EAC26E; 
         }
+
+        .active-link {
+          background-color: #CFBD97; 
+          color: black; 
+          padding: 5px 10px;
+          border-radius: 5px;
+        }
+
 
         .dropdownToggle {
           background-color: #fff;
@@ -45,7 +55,7 @@ const Style = () => {
           margin: 0 auto;
           position: relative;
           padding: 20px; 
-          overflow: hidden;
+          // overflow: hidden;
           color: white;
         }
          

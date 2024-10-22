@@ -29,11 +29,11 @@ const HistoriqueReclamation = () => {
 
 
     const pageStyle = {
-        background: 'linear-gradient(to top, #CFBD97, #69604D)',
-        minHeight: '100vh', // Pour que le dégradé s'applique à toute la page
+      background: 'linear-gradient(180deg, rgba(14, 14, 14, 1) 0%, rgba(207, 189, 151, 1) 100%)',
+        minHeight: '100vh', 
         display: 'flex',
-        flexDirection: 'column', // Organiser les éléments verticalement
-        justifyContent: 'space-between', // Séparer le contenu et le footer
+        flexDirection: 'column', 
+        justifyContent: 'space-between',
         alignItems: 'center',
         
     };
