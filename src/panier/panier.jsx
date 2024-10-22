@@ -18,29 +18,26 @@ const ARTICLES = [
 ];
 
 const OPTIONS_PAIEMENT = [
-    { id: 1, nom: 'Momo' },
-    { id: 2, nom: 'Orange Money' },
-    { id: 3, nom: 'PayPall' },
-    { id: 4, nom: 'Points de fidélité' },
+    { id: 1, nom: 'Momo', details: 'Instructions pour Momo...' },
+    { id: 2, nom: 'Orange Money', details: 'Instructions pour Orange Money...' },
+    { id: 3, nom: 'PayPall', details: 'Instructions pour PayPall...' },
+    { id: 4, nom: 'Points de fidélité', details: 'Utilisez vos points de fidélité ici.' },
 ];
 
 function Panier() {
-    // État pour gérer les articles dans le panier et leurs quantités
-    const [panier, setPanier] = useState(ARTICLES.map(article => ({ ...article, quantite: 1 }))); // chaque article a une quantité initiale de 1
+    const [panier, setPanier] = useState(ARTICLES.map(article => ({ ...article, quantite: 1 })));
     const [showPaymentOverlay, setShowPaymentOverlay] = useState(false);
+    const [selectedPaymentOption, setSelectedPaymentOption] = useState(null); // État pour le paiement sélectionné
 
-    // Calcul du montant total
     const totalAmount = panier.reduce((total, article) => total + (article.prix * article.quantite), 0);
-    const articleCount = panier.reduce((total, article) => total + article.quantite, 0); // Total des articles
+    const articleCount = panier.reduce((total, article) => total + article.quantite, 0);
 
-    // Incrémenter la quantité d'un article dans le panier
     const handleIncrement = (articleId) => {
         setPanier(panier.map(article =>
             article.id === articleId ? { ...article, quantite: article.quantite + 1 } : article
         ));
     };
 
-    // Décrémenter la quantité d'un article dans le panier (minimum 1)
     const handleDecrement = (articleId) => {
         setPanier(panier.map(article =>
             article.id === articleId ? { ...article, quantite: Math.max(1, article.quantite - 1) } : article
@@ -53,13 +50,18 @@ function Panier() {
 
     const handleCloseOverlay = () => {
         setShowPaymentOverlay(false);
+        setSelectedPaymentOption(null); // Réinitialiser le mode de paiement sélectionné
+    };
+
+    const handleSelectPaymentOption = (option) => {
+        setSelectedPaymentOption(option); // Mettre à jour l'option sélectionnée
     };
 
     return (
-        <div style={{ background: 'linear-gradient(to top, #CFBD97, #69604D)'}} className="container-fluid">
+        <div style={{ background: 'linear-gradient(to top, #CFBD97, #69604D)' }} className="container-fluid">
             <HeaderEtudiant />
-            <div className="row d-flex justify-content-center align-items-center" style={{marginTop: '90px'}}>
-                <div className="col d-flex justify-content-center align-items-center" style={{marginBottom: '10px'}}>
+            <div className="row d-flex justify-content-center align-items-center" style={{ marginTop: '90px' }}>
+                <div className="col d-flex justify-content-center align-items-center" style={{ marginBottom: '10px' }}>
                     <label style={{ color: "white", fontFamily: 'milonga', fontSize: '20px' }}>Mon panier</label>
                 </div>
             </div>
@@ -107,7 +109,7 @@ function Panier() {
                 ))}
             </div>
 
-            <div className="row d-flex justify-content-center align-items-center" style={{ marginTop: '15px', paddingBottom:'50px' }}>
+            <div className="row d-flex justify-content-center align-items-center" style={{ marginTop: '15px', paddingBottom: '50px' }}>
                 <div className="col d-flex justify-content-center align-items-center">
                     <label style={{ marginRight: '10px', color: 'white', fontFamily: 'milonga' }}>{totalAmount} fcfa</label>
                     <button style={{ width: '100px', borderRadius: '15px', backgroundColor: '#69604C', borderColor: '#69604C', fontFamily: 'milonga' }} onClick={handlePayClick}>
@@ -122,9 +124,23 @@ function Panier() {
                         <h5>Choisissez votre moyen de paiement</h5>
                         <ul>
                             {OPTIONS_PAIEMENT.map(option => (
-                                <li key={option.id}>{option.nom}</li>
+                                <li 
+                                    key={option.id} 
+                                    style={{ cursor: 'pointer', padding: '5px', backgroundColor: selectedPaymentOption?.id === option.id ? '#CFBD97' : 'white' }} 
+                                    onClick={() => handleSelectPaymentOption(option)}
+                                >
+                                    {option.nom}
+                                </li>
                             ))}
                         </ul>
+
+                        {selectedPaymentOption && (
+                            <div>
+                                <h6>Détails pour {selectedPaymentOption.nom} :</h6>
+                                <p>{selectedPaymentOption.details}</p>
+                            </div>
+                        )}
+
                         <button onClick={handleCloseOverlay}>Fermer</button>
                     </div>
                 </div>
