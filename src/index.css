@@ -1,13 +1,278 @@
-body {
+@import url('https://fonts.googleapis.com/css2?family=Milonga&display=swap');
+
+body{
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  background: linear-gradient(to bottom,#0c0c04, #d0bc94);
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+*{
+  font-family: 'Milonga';
+}
+
+.body{
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.logo-header{
+  width: 108px;
+}
+
+.navbar-container{
+  display: flex;
+  justify-content: space-between;
+  min-width: 100%;
+  height: 6rem;
+  align-items: center;
+  background-color: black;
+  color: goldenrod;
+  border-bottom: 1px solid white;
+
+}
+
+.navbar{
+  display: flex;
+  width: 46rem;
+  justify-content: space-between;
+  text-decoration: none;
+}
+
+a {
+  font-weight: 500;
+  color: goldenrod;
+  text-decoration: inherit;
+  padding: 0.5rem;
+}
+a:hover {
+  color: black;
+  background-color: goldenrod;
+  border-radius: 5px;
+  font-weight: bold;
+
+}
+
+
+.profile-container{
+  border: 1px solid black;
+  display: flex;
+}
+
+
+.main{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap:4rem;
+
+}
+
+.main-header>div{
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  border: 1px solid black;
+}
+
+.main-header{
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+}
+
+.title{
+  font-size: 3rem;
+  font-weight: 600;
+}
+
+.title2{
+  font-size: 2rem;
+  font-weight: 500;
+}
+
+.header-img{
+  width: 6rem;
+  height: 6rem;
+  border-radius: 99px;
+}
+
+
+.table-container{
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  gap: 2rem;
+  width: 75%;
+}
+
+.employe-list{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+  font-size: 1.5rem;
+}
+
+.logo-wrapper{
+  border: 1px solid red;
+  border-radius: 99px;
+}
+
+.modal-btn{
+
+  /*border: 1px solid black;*/
+  /*background-color: white;*/
+  /*color: black;*/
+  cursor: pointer;
+  border: 1px solid goldenrod;
+  border-radius: 99px;
+}
+.modal-btn:hover{
+  background-color: goldenrod;
+}
+.logo2{
+  border-radius: 999px;
+  width: 4rem;
+}
+
+.table-wrapper{
+  border: 1px solid;
+  display: flex;
+  justify-content: space-between;
+  margin: auto;
+  border-radius: 10px;
+  width: 100%;
+  overflow: hidden;
+  height: 20rem;
+  background-color: white;
+}
+
+.styled-table{
+  border-collapse: collapse;
+  width: 100%;
+  height: 60%;
+}
+
+thead{
+  background-color: #C4C8D4;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.th-top-right{
+  border-top-right-radius: 10px;
+}
+
+th{
+  min-width: 2rem;
+}
+
+.th-top-left{
+  border-top-left-radius: 10px;
+}
+td {
+  border-bottom: 1px solid black;
+
+  margin: 1rem;
+  text-align: center;
+}
+
+tr{
+  height: 2rem;
+
+}
+
+.footer{
+  width: 100%;
+  display: flex;
+  height: 11rem;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer-element{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.footer-element>p{
+  font-size: 1.25rem;
+}
+
+.footer-element>span{
+  text-decoration: underline;
+}
+
+.modal-wrapper{
+  border: 1px solid;
+  width: 30%;
+  height: 50%;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  background-color: goldenrod;
+  position: absolute;
+  transform: translate(33rem, -33rem);
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 
+              0 6px 20px rgba(0, 0, 0, 0.1); 
+}
+
+.modal-title{
+  display: flex;
+  justify-content: center;
+  font-size: 1.5rem;
+  padding: 0.25rem;
+  font-weight: bold;
+}
+
+.modal-form{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+
+}
+
+.modal-footer{
+  display: flex;
+  gap: 0.75rem;
+  height: 3rem;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.modal-footer>Button{
+  height: 1.5rem;
+}
+
+/* Style de la scrollbar */
+::-webkit-scrollbar {
+  width: 12px; /* Largeur de la scrollbar */
+}
+
+/* Style de la piste de la scrollbar */
+::-webkit-scrollbar-track {
+  background: #f1f1f1; /* Couleur de la piste */
+  border-radius: 10px; /* Ajoute un effet arrondi */
+}
+
+/* Style de la barre de défilement */
+::-webkit-scrollbar-thumb {
+  background: #888; /* Couleur de la barre */
+  border-radius: 10px; /* Arrondit les bords de la barre */
+  border: 3px solid #f1f1f1; /* Ajoute un peu d'espace autour de la barre */
+}
+
+/* Change la couleur de la barre au survol */
+::-webkit-scrollbar-thumb:hover {
+  background: #555; /* Couleur au survol */
 }
