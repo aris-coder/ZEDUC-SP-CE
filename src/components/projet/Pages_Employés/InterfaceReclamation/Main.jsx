@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 const Main = () => {
     const styles = {
         main: {
-            background: 'linear-gradient(to top, #69604D, #69604D)',
+            background: "linear-gradient(to bottom, #CFBD97, #69604D)",
             display: 'grid',
             placeItems: 'center',
             minHeight: '100vh',

@@ -8,7 +8,7 @@ const InterfaceCommande = () => {
     const styles = {
         body: {
             fontFamily: 'Milonga, serif',
-            background: 'linear-gradient(to top, #69604D, #69604D)',
+            background: "linear-gradient(to bottom, #CFBD97, #69604D)",
             margin: 0,
             padding: 0,
         },
