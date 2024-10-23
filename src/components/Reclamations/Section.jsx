@@ -11,7 +11,8 @@ function HeaderSection() {
           src={process.env.PUBLIC_URL + '/assets/image1.png'}
           alt="Poulet Gauche"/>
           
-      
+          <h1 className="text-center mb-5" style={{ color: '#EDEDED', fontFamily: 'Times New Roman' }}>Suivi des Reclamations</h1>
+
 
       {/* Image de poulet à droite */}
         <img
