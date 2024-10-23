@@ -51,18 +51,18 @@ const NavbarEtudiant = () => {
           <Link to="/panier_etudiant_page">
             <img src={basketsee} alt='basketsee' style={{ height: '40px', marginRight: '10px', cursor: 'pointer' }} />
           </Link>
-          <Link to="/profil_etudiant">
+          <Link to="#">
             <img src={user} alt='user' style={{ height: '40px', cursor: 'pointer' }} /> 
           </Link>
         </div>
 
         <Dropdown>
-        <Dropdown.Menu>
-          <Dropdown.Item as={Link} to="/acceuil_etudiant">Acceuil</Dropdown.Item>
-          <Dropdown.Item as={Link} to="/command_etudiant_page">Historique commandes</Dropdown.Item>
-          <Dropdown.Item as={Link} to="/reclamation">Réclamations</Dropdown.Item>
-          <Dropdown.Item as={Link} to="/meilleurs_clients">Meilleurs clients</Dropdown.Item>
-        </Dropdown.Menu>
+          <Dropdown.Menu>
+            <Dropdown.Item href="#historique">Historique commande</Dropdown.Item>
+            <Dropdown.Item href="#reclamations">Réclamations</Dropdown.Item>
+            <Dropdown.Item href="#jeux">Jeux & Événements</Dropdown.Item>
+            <Dropdown.Item href="#meilleurs-clients">Meilleurs clients</Dropdown.Item>
+          </Dropdown.Menu>
         </Dropdown>
       </Navbar>
     </>

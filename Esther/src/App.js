@@ -1,6 +1,5 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import HomePage from './acceuil/homePage.jsx';
 import Inscription from './authentification/inscription.jsx';
 import Connexion from './authentification/connexion.jsx';
 import MotDePasseOublie from './authentification/mot_de_passe_oubli.jsx';
@@ -11,7 +10,7 @@ import ReclamationEtudiantPage from './EtudiantReclamation/pageReclamationEtudia
 import PanierEtudiantPage from './panier/panierEtudiantPage.jsx';
 import CommandeEtudiantPage from './EtudiantCommande/pageCommadeEtudiant.jsx';
 import MeilleursClientsPage from './meilleurClients/pageMeilleursClients.jsx';
-import Profil from './profil/PageProfileBody.jsx';
+// import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 
@@ -22,7 +21,7 @@ function App() {
     <Router>
       <Routes>
         
-        <Route path='/acceuil' element={<HomePage />} />
+        {/* <Route path='/' element={<HomePage />} /> */}
         
         <Route path='/inscription' element={<Inscription />} />
         <Route path='/connexion' element={<Connexion />} />
@@ -36,7 +35,6 @@ function App() {
         <Route path='/panier_etudiant_page' element={<PanierEtudiantPage />} />
         <Route path='/command_etudiant_page' element={<CommandeEtudiantPage />} />
         <Route path='/meilleurs_clients' element={<MeilleursClientsPage />} />
-        <Route path='/profil_etudiant' element={<Profil />} />
       </Routes>
     </Router>
   );
