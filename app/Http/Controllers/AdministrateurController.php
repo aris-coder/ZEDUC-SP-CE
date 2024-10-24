@@ -2,16 +2,16 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Administration;
+use App\Models\Administrateur;
 use Illuminate\Http\Request;
 
-class AdministrationController extends Controller
+class AdministrateurController extends Controller
 {
     // Lister toutes les administrations
     public function index()
     {
-        $administrations = Administration::all();
-        return response()->json($administrations);
+        $administrateurs = Administrateur::all();
+        return response()->json($administrateurs);
     }
 
     // Créer une nouvelle administration
@@ -22,15 +22,15 @@ class AdministrationController extends Controller
             'role' => 'required|string|max:255',
         ]);
 
-        $administration = Administration::create($validated);
-        return response()->json($administration, 201);
+        $administrateur = Administrateur::create($validated);
+        return response()->json($administrateur, 201);
     }
 
     // Afficher une administration spécifique
     public function show($id)
     {
-        $administration = Administration::findOrFail($id);
-        return response()->json($administration);
+        $administrateur = Administrateur::findOrFail($id);
+        return response()->json($administrateur);
     }
 
     // Mettre à jour une administration
@@ -41,16 +41,16 @@ class AdministrationController extends Controller
             'role' => 'sometimes|required|string|max:255',
         ]);
 
-        $administration = Administration::findOrFail($id);
-        $administration->update($validated);
-        return response()->json($administration);
+        $administrateur = Administrateur::findOrFail($id);
+        $administrateur->update($validated);
+        return response()->json($administrateur);
     }
 
     // Supprimer une administration
     public function destroy($id)
     {
-        $administration = Administration::findOrFail($id);
-        $administration->delete();
+        $administrateur = Administrateur::findOrFail($id);
+        $administrateur->delete();
         return response()->json(null, 204);
     }
 }

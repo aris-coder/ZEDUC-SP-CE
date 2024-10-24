@@ -2,13 +2,10 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class PaiementPaypal extends Model
 {
-    use HasFactory;
-
     // Nom de la table
     protected $table = 'paiement_paypal';
 

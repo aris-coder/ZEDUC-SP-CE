@@ -2,14 +2,12 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class PointFidelite extends Model
 {
-    use HasFactory;
-
-    protected $table = 'id_etudiant';
+    protected $table = 'points_fidelite';
+    protected $primaryKey = 'id_etudiant'; // La clé primaire est id_etudiant
 
     protected $fillable = [
         'id_etudiant',

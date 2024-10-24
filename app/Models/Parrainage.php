@@ -2,13 +2,10 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Parrainage extends Model
 {
-    use HasFactory;
-
     protected $table = 'parrainages';
 
     protected $primaryKey = 'filleul_id'; // La clé primaire est filleul_id

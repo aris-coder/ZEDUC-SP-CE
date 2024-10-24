@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\PointFidelite;
 use Illuminate\Http\Request;
 
-class PointFideliteController extends Controller
+class PointsFideliteController extends Controller
 {
     public function index()
     {

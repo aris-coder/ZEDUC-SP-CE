@@ -2,13 +2,10 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Livraison extends Model
 {
-    use HasFactory;
-
     protected $table = 'livraison';
     protected $primaryKey = 'id_commande'; // La clé primaire est `id_commande`, comme dans la migration
 

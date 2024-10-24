@@ -2,12 +2,10 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class DetailCommande extends Model
 {
-    use HasFactory;
 
     protected $table = 'detail_commandes';
     public $incrementing = false; // Puisque la clé primaire est composée

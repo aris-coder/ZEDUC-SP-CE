@@ -16,12 +16,11 @@ return new class extends Migration
             $table->string('nom_utilisateur');
             $table->string('email')->unique();
             $table->string('numero_telephone');
-            $table->texte('mot_de_passe', 255);
+            $table->texte('mot_de_passe', 8);
             $table->dateTime('date_inscription');
             $table->enum('role', ['étudiant', 'employé', 'gérant', 'administrateur']);
             $table->timestamps();
         });
-        
     }
 
     /**
@@ -32,4 +31,3 @@ return new class extends Migration
         Schema::dropIfExists('utilisateurs');
     }
 };
-

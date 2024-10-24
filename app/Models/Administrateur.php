@@ -2,14 +2,13 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+
 use Illuminate\Database\Eloquent\Model;
 
-class Administration extends Model
+class Administrateur extends Model
 {
-    use HasFactory;
 
-    protected $table = 'administrations'; // Nom de la table
+    protected $table = 'administrateur'; // Nom de la table
 
     protected $primaryKey = 'id_administration'; // Clé primaire
 

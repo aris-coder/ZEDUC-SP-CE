@@ -8,65 +8,47 @@ use Illuminate\Http\Request;
 
 class GerantController extends Controller
 {
-    // Afficher la liste des gérants
+    // Lister tous les employés
     public function index()
     {
-        $gerants = Gerant::with('utilisateur')->get();
-        return view('gerants.index', compact('gerants'));
+        $gerant = Gerant::with('utilisateur')->get();
+        return response()->json($gerant);
     }
 
-    // Afficher le formulaire de création d'un gérant
-    public function create()
-    {
-        return view('gerants.create');
-    }
-
-    // Enregistrer un nouveau gérant
+    // Créer un nouvel employé
     public function store(Request $request)
     {
-        $request->validate([
-            'id_gerant' => 'required|exists:utilisateurs,id_utilisateur|unique:gerants,id_gerant',
+        $validated = $request->validate([
+            'id_utilisateur' => 'required|exists:utilisateurs,id_utilisateur|unique:gerants,id_gerant',
         ]);
 
-        Gerant::create(['id_gerant' => $request->id_gerant]);
-
-        return redirect()->route('gerants.index')->with('success', 'Gérant créé avec succès.');
+        $gerant = Gerant::create(['id_utilisateur' => $validated['id_utilisateur']]);
+        return response()->json($gerant, 201);
     }
 
-    // Afficher les détails d'un gérant
+    // Afficher un employé spécifique
     public function show($id)
     {
         $gerant = Gerant::with('utilisateur')->findOrFail($id);
-        return view('gerants.show', compact('gerant'));
+        return response()->json($gerant);
     }
 
-    // Afficher le formulaire d'édition d'un gérant
-    public function edit($id)
-    {
-        $gerant = Gerant::findOrFail($id);
-        return view('gerants.edit', compact('gerant'));
-    }
-
-    // Mettre à jour un gérant
+    // Mettre à jour un employé
     public function update(Request $request, $id)
     {
-        $gerant = Gerant::findOrFail($id);
-
-        $request->validate([
-            'id_gerant' => 'required|exists:utilisateurs,id_utilisateur|unique:gerants,id_gerant,' . $gerant->id_gerant,
+        $validated = $request->validate([
+            'id_utilisateur' => 'required|exists:utilisateurs,id_utilisateur|unique:gerants,id_gerant,' . $id,
         ]);
 
-        $gerant->update(['id_gerant' => $request->id_gerant]);
-
-        return redirect()->route('gerants.index')->with('success', 'Gérant mis à jour avec succès.');
+        $gerant = Gerant::findOrFail($id);
+        $gerant->update(['id_utilisateur' => $validated['id_utilisateur']]);
+        return response()->json($gerant);
     }
 
-    // Supprimer un gérant
+    // Supprimer un employé
     public function destroy($id)
     {
-        $gerant = Gerant::findOrFail($id);
-        $gerant->delete();
-
-        return redirect()->route('gerants.index')->with('success', 'Gérant supprimé avec succès.');
+        Gerant::destroy($id);
+        return response()->json(null, 204);
     }
 }

@@ -2,13 +2,10 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class PaiementPointsFidelite extends Model
+class PaiementPointFidelite extends Model
 {
-    use HasFactory;
-
     protected $table = 'paiement_points_fidelite';
     protected $primaryKey = 'id_point_fidelite';
     public $timestamps = true;

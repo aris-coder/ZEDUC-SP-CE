@@ -2,24 +2,26 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Utilisateur extends Model
 {
-    use HasFactory;
 
     protected $table = 'utilisateurs'; // Nom de la table
 
     protected $primaryKey = 'id_utilisateur'; // Clé primaire
 
     protected $fillable = [
-        'nom_utilisateur',
-        'email',
-        'numero_telephone',
-        'mot_de_passe',
-        'date_inscription',
-        'role',
+        'nom_utilisateur', 
+        'email', 
+        'numero_telephone', 
+        'mot_de_passe', 
+        'date_inscription', 
+        'role'
+    ];
+
+    protected $hidden = [
+        'mot_de_passe'
     ];
 
     // Définir la relation avec Étudiant
