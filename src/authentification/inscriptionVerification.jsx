@@ -1,4 +1,6 @@
+import axios from 'axios';
 import React, { useState } from 'react';
+import { Navigate, useNavigate } from 'react-router-dom';
 
 const FormInscription = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -10,8 +12,10 @@ const FormInscription = () => {
     password: '',
     confirmPassword: ''
   });
-  
+
   const [errors, setErrors] = useState({});
+  const navigate = useNavigate(); 
+
 
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
@@ -27,7 +31,7 @@ const FormInscription = () => {
     setFormData({ ...formData, [name]: value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const newErrors = {};
 
@@ -47,14 +51,38 @@ const FormInscription = () => {
 
     if (Object.keys(newErrors).length === 0) {
       console.log("Formulaire soumis avec succès:", formData);
-      setFormData({
-        nom: '',
-        prenom: '',
-        tel: '',
-        email: '',
-        password: '',
-        confirmPassword: ''
-      });
+      await axios.post("http://127.0.0.1:8000/api/api/utilisateurs", {
+        nom_utilisateur: `${formData.nom} ${formData.prenom}`,
+        email: formData.email,
+        numero_telephone: formData.tel,
+        mot_de_passe: formData.password,
+        role: "etudiant"
+    })
+    .then(() => {
+        alert("Inscription réussie avec succès !");
+        navigate('/acceuil_etudiant');
+    })
+    .catch((err) => {
+        if (err.response) {
+            console.error("Erreur dans la réponse de l'API :", err.response.data);
+            alert(`Erreur: ${err.response.data.message || "Inscription échouée"}`);
+        } else if (err.request) {
+            console.error("Aucune réponse reçue de l'API :", err.request);
+            alert("Aucune réponse reçue du serveur.");
+        } else {
+            console.error("Erreur lors de la requête :", err.message);
+            alert(`Erreur: ${err.message}`);
+        }
+    });
+    
+      // setFormData({
+      //   nom: '',
+      //   prenom: '',
+      //   tel: '',
+      //   email: '',
+      //   password: '',
+      //   confirmPassword: ''
+      // });
     } else {
       setErrors(newErrors);
     }
@@ -65,7 +93,7 @@ const FormInscription = () => {
       <div className="row">
         <div className="col-md-6 mb-3">
           <label htmlFor="nom" className="form-label">Nom</label>
-          <input id="nom" name="nom" type="text" className="form-control rounded-pill" value={formData.nom} onChange={handleChange}/>
+          <input id="nom" name="nom" type="text" className="form-control rounded-pill" value={formData.nom} onChange={handleChange} />
           {errors.nom && <div className="text-danger">{errors.nom}</div>}
         </div>
         <div className="col-md-6 mb-3">

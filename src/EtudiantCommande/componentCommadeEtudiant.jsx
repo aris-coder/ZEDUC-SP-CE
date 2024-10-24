@@ -6,14 +6,15 @@ const HistoriqueCommande = () => {
   const [showVoirReponse, setShowVoirReponse] = useState(false);
   const [selectedReclamation, setSelectedReclamation] = useState(null);
 
-  // Réclamations avec les plats inclus
+  // Réclamations avec les plats inclus et détails de livraison
   const reclamations = [
     {
       Qt: 3,
       idCommande: "CMD001",
+      type: "emporter",
       dateCommande: "2024-10-22",
       statut: "en attente",
-      paiement: "momo",
+      paiement: "points de fidélité",
       plats: [
         { nom: "dg", prix: 2500, quantite: 2 },
         { nom: "kok", prix: 1000, quantite: 1 }
@@ -22,9 +23,13 @@ const HistoriqueCommande = () => {
     {
       Qt: 5,
       idCommande: "CMD003",
+      type: "livré",
       dateCommande: "2024-10-22",
       statut: "validé",
       paiement: "orange money",
+      dateLivraison: "2024-10-23",
+      heureLivraison: "14:00",
+      adresseLivraison: "123 rue Exemple, Ville, Pays",
       plats: [
         { nom: "ndole", prix: 1000, quantite: 1 },
         { nom: "eru", prix: 1500, quantite: 2 }
@@ -33,11 +38,12 @@ const HistoriqueCommande = () => {
     {
       Qt: 3,
       idCommande: "CMD007",
+      type: "emporter",
       dateCommande: "2024-10-22",
-      statut: "en attente",
-      paiement: "paypall",
+      statut: "expiré",
+      paiement: "paypal",
       plats: [
-        { nom: "poulet pannée", prix: 2000, quantite: 2 },
+        { nom: "poulet pané", prix: 2000, quantite: 2 },
         { nom: "pilé pomme", prix: 100, quantite: 1 }
       ]
     }
@@ -70,16 +76,16 @@ const HistoriqueCommande = () => {
     <div style={pageStyle}>
       <HeaderEtudiant />
 
-      {/* Conteneur pour aligner h2 et le bouton sur la même ligne */}
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: '140px', marginBottom: '20px', maxWidth: '1000px', width: '100%', margin: '0 auto', color: 'white' }}>
         <h2>Historique de mes commandes</h2>
       </div>
 
       <div style={tableContainerStyle}>
-        <Table striped bordered hover style={{ Width: '100%'}}>
+        <Table striped bordered hover style={{ Width: '100%' }}>
           <thead>
             <tr>
               <th>ID de la commande</th>
+              <th>Type de la commande</th>
               <th>Date de la commande</th>
               <th>Statut de la commande</th>
               <th>Mode de paiement</th>
@@ -90,6 +96,7 @@ const HistoriqueCommande = () => {
             {reclamations.map((reclamation) => (
               <tr key={reclamation.idCommande} onClick={() => handleShowVoirReponse(reclamation)}>
                 <td>{reclamation.idCommande}</td>
+                <td>{reclamation.type}</td>
                 <td>{reclamation.dateCommande}</td>
                 <td>{reclamation.statut}</td>
                 <td>{reclamation.paiement}</td>
@@ -100,7 +107,6 @@ const HistoriqueCommande = () => {
         </Table>
       </div>
 
-      {/* Modal pour voir les détails de la commande */}
       <Modal show={showVoirReponse} onHide={handleCloseVoirReponse}>
         <Modal.Header closeButton>
           <Modal.Title>Détail de la commande</Modal.Title>
@@ -141,6 +147,16 @@ const HistoriqueCommande = () => {
               <p><strong>Montant total de la commande:</strong> {
                 selectedReclamation.plats.reduce((total, plat) => total + (plat.prix * plat.quantite), 0)
               } FCFA</p>
+
+              {/* Affichage des détails de livraison si la commande est livrée */}
+              {selectedReclamation.type === "livré" && (
+                <>
+                  <h5>Détails de livraison :</h5>
+                  <p><strong>Date de livraison:</strong> {selectedReclamation.dateLivraison}</p>
+                  <p><strong>Heure de livraison:</strong> {selectedReclamation.heureLivraison}</p>
+                  <p><strong>Adresse de livraison:</strong> {selectedReclamation.adresseLivraison}</p>
+                </>
+              )}
             </>
           )}
         </Modal.Body>

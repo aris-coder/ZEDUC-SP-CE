@@ -22,7 +22,7 @@ function App() {
     <Router>
       <Routes>
         
-        <Route path='/acceuil' element={<HomePage />} />
+        <Route path='/' element={<HomePage />} />
         
         <Route path='/inscription' element={<Inscription />} />
         <Route path='/connexion' element={<Connexion />} />
@@ -30,7 +30,7 @@ function App() {
         <Route path='/about' element={<AboutPage />}/>
         <Route path='/help' element={<HelpPage />}/>
         
-        <Route path='/' element={<AcceuilEtudiant />} />
+        {/* <Route path='/' element={<AcceuilEtudiant />} /> */}
         <Route path='/acceuil_etudiant' element={<AcceuilEtudiant />} />
         <Route path='/reclamation' element={<ReclamationEtudiantPage />} />
         <Route path='/panier_etudiant_page' element={<PanierEtudiantPage />} />
