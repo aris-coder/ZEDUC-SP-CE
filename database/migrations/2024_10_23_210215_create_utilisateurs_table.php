@@ -17,7 +17,6 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->string('numero_telephone');
             $table->texte('mot_de_passe', 255);
-            $table->dateTime('date_inscription');
             $table->enum('role', ['étudiant', 'employé', 'gérant', 'administrateur']);
             $table->timestamps();
         });

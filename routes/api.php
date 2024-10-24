@@ -83,8 +83,7 @@ Route::prefix('api')->group(function () {
     Route::resource('reponses_reclamations', ReponseReclamationController::class);
 
     // Utilisateur Routes
-    Route::resource('/utilisateurs', UtilisateurController::class);
-
+    Route::resource('utilisateurs', UtilisateurController::class);
 
     // ValidationReclamation Routes
     Route::resource('validation_reclamations', ValidationReclamationController::class);

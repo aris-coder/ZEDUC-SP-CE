@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
-use App\Models\User;
+use App\Models\Utilisateur;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -21,20 +21,20 @@ class RegisteredUserController extends Controller
     public function store(Request $request): Response
     {
         $request->validate([
-            'name' => ['required', 'string', 'max:255'],
+            'nom_utilisateur' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.User::class],
-            'password' => ['required', 'confirmed', Rules\Password::defaults()],
+            'mot_de_passe' => ['required', 'confirmed', Rules\Password::defaults()],
         ]);
 
-        $user = User::create([
-            'name' => $request->name,
+        $utilisateur = Utilisateur::create([
+            'nom_utilisateur' => $request->nom_utilisateur,
             'email' => $request->email,
-            'password' => Hash::make($request->string('password')),
+            'mot_de_passe' => Hash::make($request->string('mot_de_passe')),
         ]);
 
-        event(new Registered($user));
+        event(new Registered($utilisateur));
 
-        Auth::login($user);
+        Auth::login($utilisateur);
 
         return response()->noContent();
     }

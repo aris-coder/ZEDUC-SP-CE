@@ -16,7 +16,6 @@ class Utilisateur extends Model
         'email', 
         'numero_telephone', 
         'mot_de_passe', 
-        'date_inscription', 
         'role'
     ];
 
