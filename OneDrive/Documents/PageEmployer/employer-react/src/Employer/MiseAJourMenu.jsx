@@ -1,7 +1,7 @@
 import React from "react";
 import Header from "./HeaderEmployer";
-import Footers from "./FooterEmployer";
-import Style from "./Style";
+import FooterComponent from "../Footer/footerComponent";
+import Style from "../Styles/StyleEmployer";
 import PlatI from '../Images/PlatI.png';
 import PlatII from '../Images/PlatII.png';
 import menu from '../Images/Menutest.png';
@@ -69,7 +69,7 @@ const MiseJourM = () =>{
     ]
 
     return(
-        <div>
+        <div style={{minHeight:'242vh'}}>
             <Style/>
             <header>
                 <Header/>
@@ -98,8 +98,8 @@ const MiseJourM = () =>{
                     </div>
                 </div>
             </main>
-            <footer style={{position:'absolute', top:'100%'}}>
-                <Footers/>
+            <footer style={{position:'relative', top:'1050px'}}>
+                <FooterComponent/>
             </footer>
         </div>
     );

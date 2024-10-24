@@ -12,7 +12,7 @@ const Style = () => {
                     }
 
                     body{
-                        min-height: 268vh;
+                        min-height: 100vh;
                         background-image: linear-gradient(to bottom ,#000000 -20%, #685F4C, #CFBD97);
                     }
 
@@ -20,12 +20,14 @@ const Style = () => {
                         height: 40px;
                         margin-left: 10px;
                         margin-top:10px;
+                        cursor: pointer;
                     }
 
                     @media (min-width: 768px) {
                         .custom-image {
                             height: 70px;
                             margin-left: 25px;
+                            cursor: pointer;
                         }
                     }
 
@@ -127,7 +129,7 @@ const Style = () => {
                     @media (min-width: 768px) {
                         .C {
                             display:block;
-                            width: 210px;
+                            width: 150px;
                             height: 45px;
                             borderRadius: 10px;
                             color:white;
@@ -140,21 +142,21 @@ const Style = () => {
                         display:none;
                         width: 100px;
                         height: 45px;
-                        borderRadius: 10px;
+                        border-radius: 10px;
                         color:white;
                         border:none;
-                        fontFamily: Be Vietnam Pro, sans-serif;
+                        font-family: Be Vietnam Pro, sans-serif;
                         margin-left: -5px;
                     }
                     @media (min-width: 768px) {
                         .M {
                             display:block;
-                            width: 170px;
+                            width: 200px;
                             height: 45px;
-                            borderRadius: 10px;
+                            border-radius: 10px;
                             color:white;
                             border:none;
-                            fontFamily: Be Vietnam Pro, sans-serif;
+                            font-family: Be Vietnam Pro, sans-serif;
                         }
                     }
 
@@ -162,21 +164,21 @@ const Style = () => {
                         display:none;
                         width: 100px;
                         height: 45px;
-                        borderRadius: 10px;
+                        border-radius: 10px;
                         color:white;
                         border:none;
-                        fontFamily: Be Vietnam Pro, sans-serif;
-                        margin-left:-15px
+                        font-family: Be Vietnam Pro, sans-serif;
+                        margin-left:-5px
                     }
                     @media (min-width: 768px) {
                         .R {
                             display:block;
                             width: 150px;
                             height: 45px;
-                            borderRadius: 10px;
+                            border-radius: 10px;
                             color:white;
                             border:none;
-                            fontFamily: Be Vietnam Pro, sans-serif;
+                            font-family: Be Vietnam Pro, sans-serif;
                         }
                     }
                     .S{
@@ -565,7 +567,7 @@ const Style = () => {
                         height: 40px;
                         border-radius: 5px;
                         position: absolute;
-                        top: 550px;
+                        top: 520px;
                         left: 10px;
                     }
 
@@ -601,7 +603,7 @@ const Style = () => {
                     }
 
                     .date-range {
-                        width: 670px;
+                        width: 680px;
                         height: 40px;
                         border-radius: 5px;
                         position: absolute;
@@ -623,7 +625,7 @@ const Style = () => {
                         borderCollapse: collapse;
                         width:635px;
                         position:absolute; 
-                        top:525px; 
+                        top:420px; 
                         left:15px;
                     }
                     @media (min-width: 768px) {
@@ -635,6 +637,26 @@ const Style = () => {
                         left:15px;
                         }
                     }
+
+
+                    .TableauIV{
+                        borderCollapse: collapse;
+                        width:635px;
+                        position:absolute; 
+                        top:620px; 
+                        left:15px;
+                    }
+                    @media (min-width: 768px) {
+                        .TableauIV{
+                        borderCollapse: collapse;
+                        width:1300px;
+                        position:absolute; 
+                        top:530px; 
+                        left:15px;
+                        }
+                    }
+
+
 
                     .menujour{
                         position:absolute;
@@ -664,6 +686,165 @@ const Style = () => {
                         top: -10px;
                         width:95%;
                     }
+
+                    
+                    .bienvenue_Acceuil{
+                        margin-left:300px;
+                        padding-top:160px;
+                        align-self: center;
+                        top: 160px;
+                        left: 370px;
+                        font-family: "Milonga", serif;
+                        color: white;
+                        font-size: 30px;
+                    }
+                    @media (min-width: 768px) {
+                        .bienvenue_Acceuil{
+                            font-size:42px;
+                            margin-left:500px;
+                            margin-top:20px;
+                            align-self: center;
+                            top: 160px;
+                            left: 370px;
+                            font-family: "Milonga", serif;
+                            color: white;
+                        }
+                    }
+
+                    .popup-design{
+                        position: fixed;
+                        top: 0;
+                        left: 0px;
+                        width: 655px;
+                        height: 100%;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        z-index: 1000; 
+                    }
+                    @media (min-width: 768px) {
+                        .popup-design{
+                            position: fixed;
+                            top: 0;
+                            left: 0px;
+                            width: 100%;
+                            height: 100%;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            z-index: 1000; 
+                        }
+                    }
+
+
+
+                    .popup-content {
+                        background-color: linear-gradient(to top, #69604D, #69604D);
+                        width: 100%;
+                        max-width: 100%;
+                        max-height: 95vh;
+                        padding: 20px;
+                        border-radius: 10px;
+                        overflow-y: auto;
+                        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+                    }
+
+                    @media (min-width: 768px) {
+                        .popup-content {
+                        background-color: linear-gradient(to top, #69604D, #69604D);
+                        width: 100%;
+                        max-width: 100%;
+                        max-height: 95vh;
+                        padding: 20px;
+                        border-radius: 10px;
+                        overflow-y: auto;
+                        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+                    }
+                    }
+
+                    .Croix{
+                        position:absolute;
+                        top:40px;
+                        left:20px;
+                        background-color:transparent;
+                    }
+
+                    .recherche{
+                            padding: 10px;
+                            font-size: 16px;
+                            border-radius: 5px;
+                            border : 1px solid #ccc;
+                            width:480px;
+                            position:absolute;
+                            left:90px;
+                            top:485px;
+                    }
+                    @media (min-width: 768px) {
+                        .recherche{
+                            padding: 10px;
+                            font-size: 16px;
+                            border-radius: 5px;
+                            border : 1px solid #ccc;
+                            width:480px;
+                            position:absolute;
+                            left:390px;
+                            top:420px;
+                        }
+                    }
+
+                    .iconrecherche{
+                            padding: 10px;
+                            margin-left: 530px;
+                            background-color: #69604D;
+                            color:white;
+                            border:none;
+                            border-radius: 5px;
+                            cursor: pointer;
+                            margin-top:75px;
+                    }
+                    @media (min-width: 768px) {
+                        .iconrecherche{
+                            padding: 10px;
+                            margin-left: 880px;
+                            background-color: #69604D;
+                            color:white;
+                            border:none;
+                            border-radius: 5px;
+                            cursor: pointer;
+                            margin-top:128px;
+                        }
+                    }
+
+                    .PlatII2{
+                        display:none;
+                    }
+                    @media (min-width: 768px) {
+                        .PlatII2{
+                            display:block;
+                            position:absolute;
+                            width:250px;
+                            height:250px; 
+                            border-radius:50%; 
+                            left:-130px; 
+                            bottom:-140px;
+                        }
+                    }
+
+                    .PLATI2{
+                        position:absolute;
+                        top:120px;
+                        left:460px;
+                    }
+                    @media (min-width: 768px) {
+                        .PLATI2{
+                        height:210px;
+                        position:absolute;
+                        top:120px;
+                        left:1091px;
+                    }
+                    }
+
+                    
                 `}
         </style>
     );

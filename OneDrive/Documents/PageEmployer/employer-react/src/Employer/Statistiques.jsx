@@ -1,14 +1,14 @@
 import React from "react";
 import Header from "./HeaderEmployer";
-import Footers from "./FooterEmployer";
-import Style from "./Style";
+import FooterComponent from "../Footer/footerComponent";
+import Style from "../Styles/StyleEmployer";
 import PlatI from '../Images/PlatI.png';
 import PlatII from '../Images/PlatII.png';
 import Search from '../Images/Search.png';
 
 const Stats = () =>{
     return(
-        <div>
+        <div style={{minHeight:'215vh'}}>
             <Style/>
             <header>
                 <Header/>
@@ -29,8 +29,8 @@ const Stats = () =>{
 
                 </div>
             </main>
-            <footer style={{position:'absolute', top:'100%'}}>
-                <Footers/>
+            <footer style={{position:'relative', top:'1450px'}}>
+                <FooterComponent/>
             </footer>
         </div>
     );

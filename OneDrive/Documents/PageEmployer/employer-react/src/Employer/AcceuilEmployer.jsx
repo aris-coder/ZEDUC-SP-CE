@@ -1,21 +1,21 @@
 import React from 'react';
 import Header from './HeaderEmployer';
-import Style from './Style';
-import Footers from './FooterEmployer';
+import Style from '../Styles/StyleEmployer';
 import PlatI from '../Images/PlatI.png';
 import PlatII from '../Images/PlatII.png';
+import FooterComponent from '../Footer/footerComponent';
 
 const AcceuilE = () => {
   return (
     <div>
       <Style/>
-      <header>
+      <header style={{marginTop:'-20px'}}>
         <Header/>
       </header>
       <main>
         <img src={PlatI} class="img-fluid" className='PLATI'/>
         <img src={PlatII} class="img-fluid" className='PLATII'/>
-        <div className="bienvenue_message_employé" style={{fontSize:'45px',marginLeft:'90px',marginTop:'-40px'}}>
+        <div className="bienvenue_Acceuil">
           ZEDUC SP@CE <br/> <br/>Bienvenue NOM 
         </div>
         <div className="container  menujour">
@@ -77,8 +77,8 @@ const AcceuilE = () => {
         <button class="voir_plusréclamation_employé">Voir plus</button>
         </div>
       </main>
-      <footer style={{position:'absolute', top:'100%'}}>
-        <Footers/>
+      <footer style={{marginTop:'1000px'}}>
+        <FooterComponent/>
       </footer>
     </div>
   );

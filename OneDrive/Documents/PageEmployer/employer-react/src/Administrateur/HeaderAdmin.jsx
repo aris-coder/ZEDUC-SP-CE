@@ -1,28 +1,16 @@
+// modifier impérativement ce fichier
 import React, {useState} from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '@fortawesome/fontawesome-free/css/all.min.css'; 
 import Logo_Zeduc from '../Images/Logo_Zeduc.svg';
 import Profile from '../Images/Profile.svg';
 import Menu from '../Images/Menu.png';
-import PageProfileBody from './PageProfileBody.jsx'
 import { Link, useLocation } from 'react-router-dom';
-import close from '../Images/Close.png';
 
-
-const Header = () => {
+const HeaderAdmin = () => {
   const [showMenu, setShowMenu] = useState(false);
   const handleButtonClick = () => {
     setShowMenu(!showMenu);
-  };
-
-  const [showPopup, setShowPopup] = useState(false);
-
-  const handleImageClick = () => {
-    setShowPopup(true);
-  };
-
-  const closePopup = () => {
-    setShowPopup(false);
   };
   
   const location = useLocation();
@@ -50,21 +38,16 @@ const Header = () => {
           }}>
           Commandes
         </Link>
-        <Link 
-          to="/HistoriqueReclamation" 
-          className='btn btn-outline-secondary fw-bold R' 
-          style={{
-            backgroundColor: location.pathname === '/HistoriqueReclamation' ? '#CFBD97' : 'initial'
-          }}>
+        <a href="#" className="btn btn-outline-secondary fw-bold R">
           Réclamations
-        </Link>
+        </a>
         <Link 
           to="/MiseJourM" 
           className='btn btn-outline-secondary fw-bold M' 
           style={{
             backgroundColor: location.pathname === '/MiseJourM' ? '#CFBD97' : 'initial'
           }}>
-          Mise à jour Menu
+          Gestion de comptes
         </Link>
         <Link 
           to="/Stats" 
@@ -83,7 +66,7 @@ const Header = () => {
         <div className='menu-floating'>
           <div className='row'>
             <div className='col'>
-            <Link to={"/AcceuilE"} className="fw-bold btn btn-outline-secondary text-light LienMenu">
+            <Link to="/AcceuilE" className="fw-bold btn btn-outline-secondary text-light LienMenu">
               Acceuil
             </Link>
             </div>
@@ -91,16 +74,12 @@ const Header = () => {
           <div className='row '>
             <div className='col'>
             <Link to={"/Consult"} className='fw-bold btn btn-outline-secondary text-light LienMenu'>
-              Commandes
+              Commandes en Attente
             </Link>
             </div>
           </div>
           <div className='row '>
-            <div className='col'>
-            <Link to={"/HistoriqueReclamation"} className="fw-bold btn btn-outline-secondary text-light LienMenu">
-              Réclamations
-            </Link>
-            </div>
+            <div className='col'><a href='#' className='fw-bold btn btn-outline-secondary text-light LienMenu'>Réclamations</a></div>
           </div>
           <div className='row '>
             <div className='col'>
@@ -118,18 +97,10 @@ const Header = () => {
           </div>
         </div>
       )}
-      <img src={Profile} alt="Profil" className="img-fluid custom-image" onClick={handleImageClick}/>
-
-      {showPopup && (
-          <div className="popup-design">
-            <PageProfileBody />
-            <button onClick={closePopup} className="Croix"><img src={close} style={{width:'60px'}}/></button>
-          </div>
-      )}
-
+      <img src={Profile} alt="Profil" className="img-fluid custom-image"/>
       <div className='Ligne'></div>
     </div>
   );
 }
 
-export default Header;
+export default HeaderAdmin;
