@@ -56,33 +56,30 @@ const FormInscription = () => {
         email: formData.email,
         numero_telephone: formData.tel,
         mot_de_passe: formData.password,
-        role: "etudiant"
-    })
-    .then(() => {
-        alert("Inscription réussie avec succès !");
-        navigate('/acceuil_etudiant');
-    })
-    .catch((err) => {
-        if (err.response) {
-            console.error("Erreur dans la réponse de l'API :", err.response.data);
-            alert(`Erreur: ${err.response.data.message || "Inscription échouée"}`);
-        } else if (err.request) {
-            console.error("Aucune réponse reçue de l'API :", err.request);
-            alert("Aucune réponse reçue du serveur.");
-        } else {
-            console.error("Erreur lors de la requête :", err.message);
-            alert(`Erreur: ${err.message}`);
+        mot_de_passe_confirmation: formData.confirmPassword,
+        role: 'étudiant'
+      })
+      .then((response) => {
+        const {role, code_parrainage}= response.data;
+        if (role=='étudiant'){
+          alert(`Inscription réussie ! Voici votre code de parrainage : ${code_parrainage}`);
+        }else{
+          alert("Inscription réussie !");
         }
-    });
-    
-      // setFormData({
-      //   nom: '',
-      //   prenom: '',
-      //   tel: '',
-      //   email: '',
-      //   password: '',
-      //   confirmPassword: ''
-      // });
+        navigate('/connexion');
+      })
+      .catch((err) => {
+          if (err.response) {
+              console.error("Erreur dans la réponse de l'API :", err.response.data);
+              alert(`Erreur: ${err.response.data.message || "Inscription échouée"}`);
+          } else if (err.request) {
+              console.error("Aucune réponse reçue de l'API :", err.request);
+              alert("Aucune réponse reçue du serveur.");
+          } else {
+              console.error("Erreur lors de la requête :", err.message);
+              alert(`Erreur: ${err.message}`);
+          }
+      });
     } else {
       setErrors(newErrors);
     }
