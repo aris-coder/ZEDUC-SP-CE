@@ -54,4 +54,12 @@ class ParrainageController extends Controller
         $parrainage->delete();
         return response()->json(null, 204);
     }
+
+    public function getPaymentOptions()
+    {
+        // Récupérer les méthodes de paiement depuis la base de données
+        $paiements = Paiement::select('methode_paiement')->distinct() ->get();
+
+        return response()->json($paiements);
+    }
 }

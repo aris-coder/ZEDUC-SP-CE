@@ -21,15 +21,20 @@ use App\Http\Controllers\ReclamationController;
 use App\Http\Controllers\ReponseReclamationController; 
 use App\Http\Controllers\UtilisateurController; 
 use App\Http\Controllers\ValidationReclamationController;
+use App\Http\Controllers\AuthentificationController;
+use App\Http\Controllers\InscriptionController;
 
 
 Route::prefix('api')->group(function () {
 
-    // GET /api/administrateurs (index)
-    // GET /api/administrateurs/{id} (show)
-    // POST /api/administrateurs (store)
-    // PUT/PATCH /api/administrateurs/{id} (update)
-    // DELETE /api/administrateurs/{id} (destroy)
+    // Connexion Routes
+    Route::post('/login', [AuthentificationController::class, 'login']);
+    Route::get('/utilisateurs/email/{email}', [AuthentificationController::class, 'getUtilisateurByEmail']);
+
+
+
+    // Inscription Routes
+    Route::post('/inscription', [InscriptionController::class, 'login']);
 
     // Administrateur Routes
     Route::resource('administrateurs', AdministrateurController::class);
@@ -57,9 +62,12 @@ Route::prefix('api')->group(function () {
 
     // Menu Routes
     Route::resource('menus', MenuController::class);
+    Route::get('/menu_du_jour', [MenuController::class, 'getMenuDuJour']);
 
     // Paiement Routes
     Route::resource('paiements', PaiementController::class);
+    Route::get('/methodes_paiement', [PaiementController::class, 'getPaymentOptions']);
+    
 
     // PaiementPaypal Routes
     Route::resource('paiements_paypal', PaiementPaypalController::class);
@@ -87,4 +95,5 @@ Route::prefix('api')->group(function () {
 
     // ValidationReclamation Routes
     Route::resource('validation_reclamations', ValidationReclamationController::class);
+
 });

@@ -18,39 +18,24 @@ class UtilisateurController extends Controller
     // Créer un nouvel utilisateur
     public function store(Request $request)
     {
-        $validatedData = $request->validate([
-            'email' => 'required|email|unique:utilisateurs,email',
+        $validated = $request->validate([
             'nom_utilisateur' => 'required|string|max:255',
-            'numero_telephone' => 'required|string|max:15',
-            'mot_de_passe' => 'required|string|min:6',
-            'role' => 'nullable|string|in:etudiant,employe,gerant,administrateur'
+            'email' => 'required|string|email|max:255|unique:utilisateurs',
+            'numero_telephone' => 'required|string|max:20',
+            'mot_de_passe' => 'required|string|min:8',
+            'role' => 'required|in:étudiant,employé,gérant,administrateur',
         ]);
 
-        // Si tout est valide, continuer avec l'inscription
-        $role = $validatedData['role'] ?? 'etudiant';
-
-        $utilisateur = new Utilisateur([
-            'nom_utilisateur' => $validatedData['nom_utilisateur'],
-            'email' => $validatedData['email'],
-            'numero_telephone' => $validatedData['numero_telephone'],
-            'mot_de_passe' => bcrypt($validatedData['mot_de_passe']),
-            'role' => $role
+        $utilisateur = Utilisateur::create([
+            'nom_utilisateur' => $validated['nom_utilisateur'],
+            'email' => $validated['email'],
+            'numero_telephone' => $validated['numero_telephone'],
+            'mot_de_passe' => Hash::make($validated['mot_de_passe']),
+            'role' => $validated['role'],
         ]);
 
-        $utilisateur->save();
-
-        // Ajouter l'utilisateur à la table appropriée
-        if ($role == 'étudiant') {
-            $etudiant = new Etudiant(['utilisateur_id' => $utilisateur->id]);
-            $etudiant->save();
-        } elseif ($role == 'employé') {
-            $employe = new Employe(['utilisateur_id' => $utilisateur->id]);
-            $employe->save();
-        }
-
-        return response()->json(['message' => 'Inscription réussie'], 201);
+        return response()->json($utilisateur, 201);
     }
-
 
     // Afficher un utilisateur spécifique
     public function show($id)

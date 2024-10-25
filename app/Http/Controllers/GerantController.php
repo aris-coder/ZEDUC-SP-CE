@@ -3,52 +3,39 @@
 namespace App\Http\Controllers;
 
 use App\Models\Gerant;
-use App\Models\Utilisateur;
 use Illuminate\Http\Request;
 
 class GerantController extends Controller
 {
-    // Lister tous les employés
-    public function index()
-    {
-        $gerant = Gerant::with('utilisateur')->get();
-        return response()->json($gerant);
-    }
-
-    // Créer un nouvel employé
+    // Insérer un nouveau gérant
     public function store(Request $request)
     {
+        // Validation de l'ID utilisateur
         $validated = $request->validate([
             'id_utilisateur' => 'required|exists:utilisateurs,id_utilisateur|unique:gerants,id_gerant',
         ]);
 
-        $gerant = Gerant::create(['id_utilisateur' => $validated['id_utilisateur']]);
+        // Création du gérant avec l'ID utilisateur validé
+        $gerant = Gerant::create([
+            'id_gerant' => $validated['id_utilisateur'],
+        ]);
+
+        // Retour de la réponse JSON avec le gérant créé et un statut 201 (créé)
         return response()->json($gerant, 201);
     }
 
-    // Afficher un employé spécifique
+    // Afficher un gérant spécifique
     public function show($id)
     {
-        $gerant = Gerant::with('utilisateur')->findOrFail($id);
-        return response()->json($gerant);
-    }
-
-    // Mettre à jour un employé
-    public function update(Request $request, $id)
-    {
-        $validated = $request->validate([
-            'id_utilisateur' => 'required|exists:utilisateurs,id_utilisateur|unique:gerants,id_gerant,' . $id,
-        ]);
-
         $gerant = Gerant::findOrFail($id);
-        $gerant->update(['id_utilisateur' => $validated['id_utilisateur']]);
         return response()->json($gerant);
     }
 
-    // Supprimer un employé
+    // Supprimer un gérant
     public function destroy($id)
     {
-        Gerant::destroy($id);
+        $gerant = Gerant::findOrFail($id);
+        $gerant->delete();
         return response()->json(null, 204);
     }
 }

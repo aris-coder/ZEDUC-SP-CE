@@ -11,11 +11,8 @@ class Etudiant extends Model
     protected $primaryKey = 'id_etudiant'; // Clé primaire
 
     protected $fillable = [
-        'id_utilisateur', // Clé étrangère
-        'nom',
-        'prenom',
-        'date_naissance',
-        'email',
+        'id_etudiant', // Clé étrangère
+        'code_parrainage',
     ];
 
     // Définir la relation avec Utilisateur

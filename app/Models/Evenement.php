@@ -13,6 +13,7 @@ class Evenement extends Model
     // Les attributs que vous pouvez remplir
     protected $fillable = [
         'titre',
+        'gain',
         'description',
         'date_debut',
         'date_fin',

@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
-use App\Models\Utilisateur;
+use App\Models\User;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -26,7 +26,7 @@ class RegisteredUserController extends Controller
             'mot_de_passe' => ['required', 'confirmed', Rules\Password::defaults()],
         ]);
 
-        $utilisateur = Utilisateur::create([
+        $utilisateur = User::create([
             'nom_utilisateur' => $request->nom_utilisateur,
             'email' => $request->email,
             'mot_de_passe' => Hash::make($request->string('mot_de_passe')),

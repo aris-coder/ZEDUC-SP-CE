@@ -26,6 +26,7 @@ class EvenementController extends Controller
     {
         $validatedData = $request->validate([
             'titre' => 'required|string|max:255',
+            'gain' => 'required|string',
             'description' => 'required|string',
             'date_debut' => 'required|date',
             'date_fin' => 'required|date|after_or_equal:date_debut', // La date de fin doit être après la date de début
@@ -42,6 +43,7 @@ class EvenementController extends Controller
 
         $validatedData = $request->validate([
             'titre' => 'sometimes|string|max:255',
+            'gain' => 'sometimes|string',
             'description' => 'sometimes|string',
             'date_debut' => 'sometimes|date',
             'date_fin' => 'sometimes|date|after_or_equal:date_debut', // La date de fin doit être après la date de début

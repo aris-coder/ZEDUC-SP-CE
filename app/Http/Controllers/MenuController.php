@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Menu;
 use Illuminate\Http\Request;
+use Carbon\Carbon;
 
 class MenuController extends Controller
 {
@@ -83,5 +84,21 @@ class MenuController extends Controller
         } else {
             return response()->json(['message' => 'Article non trouvé'], 404);
         }
+    }
+
+    // Récupérer le menu du jour
+    public function getMenuDuJour(Request $request)
+    {
+        // Récupérer la date actuelle
+        $today = Carbon::today();
+
+        // Requête pour récupérer les éléments du menu créés aujourd'hui
+        $menuDuJour = Menu::whereDate('created_at', $today)->get();
+
+        if ($menuDuJour->isEmpty()) {
+            return response()->json(['message' => 'Aucun élément trouvé pour le menu du jour'], 404);
+        }
+
+        return response()->json($menuDuJour);
     }
 }

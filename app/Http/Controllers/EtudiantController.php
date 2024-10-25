@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Etudiant;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class EtudiantController extends Controller
 {
@@ -14,17 +15,30 @@ class EtudiantController extends Controller
         return response()->json($etudiants);
     }
 
-    // Créer un nouvel étudiant
+    // Fonction pour générer un code de parrainage aléatoire (lettres et chiffres uniquement)
+    private function generateCodeParrainage()
+    {
+        return Str::random(6);
+    }
+
+    // Insérer un nouvel étudiant
     public function store(Request $request)
     {
+        // Validation des données
         $validated = $request->validate([
-            'nom' => 'required|string|max:255',
-            'prenom' => 'required|string|max:255',
-            'date_naissance' => 'required|date',
-            'email' => 'required|string|email|max:255|unique:etudiants',
+            'id_utilisateur' => 'required|exists:utilisateurs,id_utilisateur|unique:etudiants,id_etudiant',
         ]);
 
-        $etudiant = Etudiant::create($validated);
+        // Génération du code de parrainage
+        $code_parrainage = $this->generateCodeParrainage();
+
+        // Création de l'étudiant avec l'ID utilisateur validé et le code de parrainage
+        $etudiant = Etudiant::create([
+            'id_etudiant' => $validated['id_utilisateur'],
+            'code_parrainage' => $code_parrainage,
+        ]);
+
+        // Retour de la réponse JSON avec l'étudiant créé et un statut 201 (créé)
         return response()->json($etudiant, 201);
     }
 
@@ -32,21 +46,6 @@ class EtudiantController extends Controller
     public function show($id)
     {
         $etudiant = Etudiant::findOrFail($id);
-        return response()->json($etudiant);
-    }
-
-    // Mettre à jour un étudiant
-    public function update(Request $request, $id)
-    {
-        $validated = $request->validate([
-            'nom' => 'sometimes|required|string|max:255',
-            'prenom' => 'sometimes|required|string|max:255',
-            'date_naissance' => 'sometimes|required|date',
-            'email' => 'sometimes|required|string|email|max:255|unique:etudiants,email,'.$id,
-        ]);
-
-        $etudiant = Etudiant::findOrFail($id);
-        $etudiant->update($validated);
         return response()->json($etudiant);
     }
 

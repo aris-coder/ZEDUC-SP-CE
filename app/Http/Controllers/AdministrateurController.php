@@ -7,46 +7,31 @@ use Illuminate\Http\Request;
 
 class AdministrateurController extends Controller
 {
-    // Lister toutes les administrations
-    public function index()
-    {
-        $administrateurs = Administrateur::all();
-        return response()->json($administrateurs);
-    }
-
-    // Créer une nouvelle administration
+    // Insérer un nouvel administrateur
     public function store(Request $request)
     {
+        // Validation de l'ID utilisateur
         $validated = $request->validate([
-            'nom' => 'required|string|max:255',
-            'role' => 'required|string|max:255',
+            'id_utilisateur' => 'required|exists:utilisateurs,id_utilisateur|unique:administrateurs,id_administrateur',
         ]);
 
-        $administrateur = Administrateur::create($validated);
+        // Création de l'administrateur avec l'ID utilisateur validé
+        $administrateur = Administrateur::create([
+            'id_administrateur' => $validated['id_utilisateur'],
+        ]);
+
+        // Retour de la réponse JSON avec l'administrateur créé et un statut 201 (créé)
         return response()->json($administrateur, 201);
     }
 
-    // Afficher une administration spécifique
+    // Afficher un administrateur spécifique
     public function show($id)
     {
         $administrateur = Administrateur::findOrFail($id);
         return response()->json($administrateur);
     }
 
-    // Mettre à jour une administration
-    public function update(Request $request, $id)
-    {
-        $validated = $request->validate([
-            'nom' => 'sometimes|required|string|max:255',
-            'role' => 'sometimes|required|string|max:255',
-        ]);
-
-        $administrateur = Administrateur::findOrFail($id);
-        $administrateur->update($validated);
-        return response()->json($administrateur);
-    }
-
-    // Supprimer une administration
+    // Supprimer un administrateur
     public function destroy($id)
     {
         $administrateur = Administrateur::findOrFail($id);
