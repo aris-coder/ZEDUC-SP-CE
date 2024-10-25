@@ -6,10 +6,13 @@ import HeaderEtudiant from './headerEtudiant';
 import dg from '../images/dg.png';
 import kok from '../images/kok.png';
 import jeuxImage from '../images/jeu.jpeg';  
+import { wait } from '@testing-library/user-event/dist/utils';
 
 const MainComponent = () => {
-  // État pour les plats du menu du jour
+  // État pour les plats du menu du jour, les promotions et evenements
   const [menuDuJour, setMenuDuJour] = useState([]);
+  const [promotions, setPromotions] = useState([]);
+  const [evenements, setEvenements] = useState([]);
 
   // Fonction pour récupérer le menu du jour
   const fetchMenuDuJour = async () => {
@@ -21,24 +24,48 @@ const MainComponent = () => {
     }
   };
 
-  // Appel fetchMenuDuJour lors du chargement du composant
+  // Fonction pour récupérer les promotions
+  const fetchPromotions = async () => {
+    try {
+      const response = await axios.get('http://127.0.0.1:8000/api/api/promotions');
+      setPromotions(response.data);
+    } catch (error) {
+      console.error("Erreur lors de la récupération des promotions:", error);
+    }
+  };
+
+  //fonction pour recuperer les evenements
+  const fetchEvenemnts = async () => {
+    try {
+      const response = await axios.get('http://127.0.0.1:8000/api/api/evenements');
+      setEvenements(response.data);
+    }catch(error){
+      console.error("Erreur lors de la récupération des evenements:", error)
+    }
+  };
+
+
+  // Appels lors du chargement du composant
   useEffect(() => {
     fetchMenuDuJour();
+    fetchPromotions();
+    fetchEvenemnts();
   }, []);
 
-  // Exemple de données pour les promotions
-  const promotionsData = [
-    { id: 1, title: "Boisson offerte", description: "-20% à partir de 3 plats", image: dg, validUntil: "18/10/2024" },
-    { id: 2, title: "Dessert gratuit", description: "-20% à partir de 3 plats", image: dg, validUntil: "18/10/2024" },
-    { id: 3, title: "Plat gratuit", description: "-30% sur le 4ème plat", image: kok, validUntil: "20/10/2024" },
-  ];
+  //Obtenir la date actuelle
+  const currentDate = new Date();
 
-  // Exemple de données pour les jeux et événements
-  const jeuxData = [
-    { id: 1, title: "Jeu de billard", description: "1 pièce de 3 parties à 1000 XAF", image: jeuxImage, hours: "12h00 - 22h00" },
-    { id: 2, title: "Jeu de fléchettes", description: "1 partie gratuite après 3", image: jeuxImage, hours: "12h00 - 22h00" },
-    { id: 3, title: "Jeu de cartes", description: "2 parties achetées, 1 partie offerte", image: jeuxImage, hours: "12h00 - 22h00" },
-  ];
+  //Filtration des promotions dont la date de fin est égale ou supérieure a la date actuelle
+  const filtredPromotions = promotions.filter(promo=>{
+    const promoDate = new Date(promo.date_fin);
+    return promoDate >= currentDate;
+  })
+
+  //Filtration des evemenennts dont la date de fin est égale ou supérieure a la date actuelle
+  const filtredEvenements = evenements.filter(even=>{
+    const evenDate= new Date(even.date_fin);
+    return evenDate>= currentDate;
+  })
 
   return (
     <>
@@ -103,30 +130,33 @@ const MainComponent = () => {
         <div className="row mt-5" style={{ paddingTop: '50px', paddingLeft: '20px' }}>
           <h2>Promotions du moment</h2>
           <Row>
-            {promotionsData.map((promo) => (
+            {filtredPromotions.map((promo) => (
               <Col key={promo.id} xs={12} sm={6} md={6} lg={4}>
-                <Card className="atout-item" style={{ height: '400px', marginBottom: '20px' }}>
+                <Card className="atout-item" style={{ height: '450px', marginBottom: '20px' }}>
                   <Card.Img
                     variant="top"
-                    src={promo.image}
+                    src={kok}
                     className="image1"
-                    alt={promo.title}
+                    alt={promo.titre}
                     style={{ height: '200px', objectFit: 'cover' }}
                   />
                   <Card.Body>
                     <Card.Title>{promo.title}</Card.Title>
                     <Card.Text>{promo.description}</Card.Text>
+                    <p style={{ fontSize: '0.8rem', color: 'gray', marginTop: '10px' }}>
+                      Valable jusqu'au {promo.date_fin}
+                    </p>
                     <Button className="btn-offer" variant="outline-warning" style={{ color: 'white', width: '200px', borderColor: '#EAC26E' }} 
                         onMouseEnter={(e) => e.target.style.backgroundColor = '#EAC26E'}
-                        onMouseLeave={(e) => e.target.style.backgroundColor = 'transparent'}>Profiter de l'offre</Button>
-                    <p style={{ fontSize: '0.8rem', color: 'gray', marginTop: '10px' }}>
-                      Valable jusqu'au {promo.validUntil}
-                    </p>
+                        onMouseLeave={(e) => e.target.style.backgroundColor = 'transparent'}>
+                      Profiter de l'offre
+                    </Button>
                   </Card.Body>
                 </Card>
               </Col>
             ))}
           </Row>
+
         </div>
 
         {/* Section Jeux et Événements */}
@@ -137,22 +167,23 @@ const MainComponent = () => {
             Chaque participation vous rapproche de récompenses exclusives comme des réductions, des repas gratuits et plus encore.
           </p>
           <Row>
-            {jeuxData.map((jeu) => (
-              <Col key={jeu.id} xs={12} sm={6} md={6} lg={4}>
-                <Card className="atout-item" style={{ height: '400px', marginBottom: '20px' }}>
+            {filtredEvenements.map((even) => (
+              <Col key={even.id} xs={12} sm={6} md={6} lg={4}>
+                <Card className="atout-item" style={{ height: '600px', marginBottom: '20px' }}>
                   <Card.Img
                     variant="top"
-                    src={jeu.image}
-                    alt={jeu.title}
+                    src={dg}
+                    alt={even.titre}
                     style={{ height: '200px', objectFit: 'cover' }}
                   />
                   <Card.Body>
-                    <Card.Title>{jeu.title}</Card.Title>
-                    <Card.Text>{jeu.description}</Card.Text>
+                    <Card.Title>{even.titre}</Card.Title>
+                    <Card.Subtitle className="mb-3 mt-3 text-muted">{even.gain}</Card.Subtitle>
+                    <Card.Text style={{fontSize: '0.8em'}}>{even.description}</Card.Text>
                     <Button variant="outline-primary" style={{ color: 'white', width: '100px', borderColor: '#EAC26E' }} 
                         onMouseEnter={(e) => e.target.style.backgroundColor = '#EAC26E'}
                         onMouseLeave={(e) => e.target.style.backgroundColor = 'transparent'}>Participer</Button>
-                    <p style={{ fontSize: '0.8rem', color: 'gray', marginTop: '10px' }}>Horaires : {jeu.hours}</p>
+                    <p style={{ fontSize: '0.8rem', color: 'gray', marginTop: '10px' }}>Horaires : {even.date_debut}-{even.date_fin}</p>
                   </Card.Body>
                 </Card>
               </Col>
