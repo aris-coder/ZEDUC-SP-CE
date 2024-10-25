@@ -1,13 +1,16 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 const FormConnexion = () => {
     const [showPassword, setShowPassword] = useState(false);
     const [formData, setFormData] = useState({
         email: '',
-        password: ''
+        mot_de_passe: ''
     });
     const [errors, setErrors] = useState({});
+    const navigate = useNavigate(); 
 
     const togglePasswordVisibility = () => {
         setShowPassword(!showPassword);
@@ -18,23 +21,56 @@ const FormConnexion = () => {
         setFormData({ ...formData, [name]: value });
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async(e) => {
         e.preventDefault();
         const newErrors = {};
 
         if (!formData.email) {
             newErrors.email = "L'adresse e-mail est requise.";
         }
-        if (!formData.password) {
-            newErrors.password = "Le mot de passe est requis.";
+        if (!formData.mot_de_passe) {
+            newErrors.mot_de_passe = "Le mot de passe est requis.";
         }
 
         if (Object.keys(newErrors).length === 0) {
-            console.log("Formulaire de connexion soumis avec succès:", formData);
-            setFormData({
-                email: '',
-                password: ''
-            });
+            console.log("Formulaire soumis avec succès:", formData);
+
+            try {
+                // Soumettre les informations de connexion
+                const response = await axios.post('http://127.0.0.1:8000/api/api/login', {
+                    email: formData.email,
+                    mot_de_passe: formData.mot_de_passe,
+                  });
+                  
+                  const utilisateur = response.data.utilisateur;
+                  
+                  // Faire un GET pour récupérer le rôle de l'utilisateur en fonction de l'email
+                  const roleResponse = await axios.get(`http://127.0.0.1:8000/api/api/utilisateurs/email/${utilisateur.email}`);
+                  const role = roleResponse.data.role;
+                  
+                  // Redirection en fonction du rôle
+                  if (role === 'étudiant') {
+                    navigate('/acceuil_etudiant');
+                  } else if (role === 'employé') {
+                    navigate('/acceuil_employé');
+                  } else if (role === 'administrateur') {
+                    navigate('/acceuil_administrateur');
+                  } else {
+                    // Autre redirection par défaut ou gestion d'erreur
+                    navigate('/');
+                }
+            } catch (err) {
+                if (err.response) {
+                    console.error("Erreur dans la réponse de l'API :", err.response.data);
+                    alert(`Erreur: ${err.response.data.message || "Connexion échouée"}`);
+                } else if (err.request) {
+                    console.error("Aucune réponse reçue de l'API :", err.request);
+                    alert("Aucune réponse reçue du serveur.");
+                } else {
+                    console.error("Erreur lors de la requête :", err.message);
+                    alert(`Erreur: ${err.message}`);
+                }
+            }
         } else {
             setErrors(newErrors);
         }
@@ -52,7 +88,7 @@ const FormConnexion = () => {
             <div className="row justify-content-center">
                 <div className="col-md-6 mb-3 position-relative">
                     <label htmlFor="password" className="form-label">Mot de passe</label>
-                    <input id="password" name="password" type={showPassword ? "text" : "password"} className="form-control rounded-pill" value={formData.password} onChange={handleChange} />
+                    <input id="password" name="mot_de_passe" type={showPassword ? "text" : "password"} className="form-control rounded-pill" value={formData.password} onChange={handleChange} />
                     <i className={showPassword ? 'fas fa-eye-slash password-eye' : 'fas fa-eye password-eye'} onClick={togglePasswordVisibility} style={{ cursor: 'pointer', position: 'absolute', right: '20px', top: '45px', zIndex: 2 }}></i>
                     {errors.password && <div className="text-danger">{errors.password}</div>}
                 </div>

@@ -9,12 +9,12 @@ const HistoriqueReclamation = () => {
   const [selectedReclamation, setSelectedReclamation] = useState(null);
 
   const reclamations = [
-    { id: 10, status: 'Répondu', date: '14/10/2024', texte: 'Texte de la réclamation' },
-    { id: 5, status: 'En attente', date: '15/12/2024', texte: 'Texte de la réclamation' },
-    { id: 1, status: 'Répondu', date: '14/10/2024', texte: 'Texte de la réclamation' },
-    { id: 2, status: 'En attente', date: '15/12/2024', texte: 'Texte de la réclamation' },
-    { id: 7, status: 'En attente', date: '15/12/2024', texte: 'Texte de la réclamation' },
-    { id: 4, status: 'En attente', date: '15/12/2024', texte: 'Texte de la réclamation' },
+    { id: 10, idcommade: 'CMD000000', status: 'Répondu', date: '14/10/2024', texte: 'Texte de la réclamation' },
+    { id: 5, idcommade: 'CMD000000', status: 'En attente', date: '15/12/2024', texte: 'Texte de la réclamation' },
+    { id: 1, idcommade: 'CMD000000', status: 'Répondu', date: '14/10/2024', texte: 'Texte de la réclamation' },
+    { id: 2, idcommade: 'CMD000000', status: 'En attente', date: '15/12/2024', texte: 'Texte de la réclamation' },
+    { id: 7, idcommade: 'CMD000000', status: 'En attente', date: '15/12/2024', texte: 'Texte de la réclamation' },
+    { id: 4, idcommade: 'CMD000000', status: 'En attente', date: '15/12/2024', texte: 'Texte de la réclamation' },
     
   ];
 
@@ -65,6 +65,7 @@ const HistoriqueReclamation = () => {
             <Table striped bordered hover style={{ Width: '100%' }}>
                 <thead>
                     <tr>
+                        <th>Commande</th>
                         <th>Status</th>
                         <th>Date d'envoie</th>
                         <th>Texte réclamation</th>
@@ -73,6 +74,7 @@ const HistoriqueReclamation = () => {
                 <tbody>
                 {reclamations.map((reclamation) => (
                     <tr key={reclamation.id} onClick={() => handleShowVoirReponse(reclamation)} >
+                    <td>{reclamation.idcommade}</td>
                     <td>{reclamation.status}</td>
                     <td>{reclamation.date}</td>
                     <td>{reclamation.texte}</td>
@@ -95,17 +97,9 @@ const HistoriqueReclamation = () => {
               <Form.Control type="text" placeholder="Entrez l'ID de commande" />
             </Form.Group>
 
-            <Form.Group controlId="typeCommande" className="mt-3">
-              <Form.Label>Type de commande</Form.Label>
-              <Form.Control as="select">
-                <option>Type 1</option>
-                <option>Type 2</option>
-              </Form.Control>
-            </Form.Group>
-
             <Form.Group controlId="commentaire" className="mt-3">
-              <Form.Label>Commentaire</Form.Label>
-              <Form.Control as="textarea" rows={3} placeholder="Entrez un commentaire" />
+              <Form.Label>Texte de la reclamation</Form.Label>
+              <Form.Control as="textarea" rows={3} placeholder="Entrez un votre reclamation" />
             </Form.Group>
           </Form>
         </Modal.Body>
