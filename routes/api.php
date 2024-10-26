@@ -30,6 +30,7 @@ Route::prefix('api')->group(function () {
     // Connexion Routes
     Route::post('/login', [AuthentificationController::class, 'login']);
     Route::get('/utilisateurs/email/{email}', [AuthentificationController::class, 'getUtilisateurByEmail']);
+    
 
 
 
