@@ -52,7 +52,7 @@ const FormConnexion = () => {
                   if (role === 'étudiant') {
                     navigate('/acceuil_etudiant');
                   } else if (role === 'employé') {
-                    navigate('/acceuil_employé');
+                    navigate('/acceuil_employe');
                   } else if (role === 'administrateur') {
                     navigate('/acceuil_administrateur');
                   } else {

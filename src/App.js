@@ -13,6 +13,13 @@ import CommandeEtudiantPage from './EtudiantCommande/pageCommadeEtudiant.jsx';
 import MeilleursClientsPage from './meilleurClients/pageMeilleursClients.jsx';
 import Profil from './profil/PageProfileBody.jsx';
 
+import AcceuilE from './Employer/AcceuilEmployer';
+import Stats from './Employer/Statistiques';
+import Consult from './Employer/ConsulterCommande';
+import MiseJourM from './Employer/MiseAJourMenu';
+import HistoriqueReclamation from './Employer/HistoriqueReclamations';
+import AcceuilG from './Gerant/AcceuilGerant.jsx';
+import GestionEmployes from './Gerant/Gestion.jsx';
 
 
 
@@ -37,6 +44,22 @@ function App() {
         <Route path='/command_etudiant_page' element={<CommandeEtudiantPage />} />
         <Route path='/meilleurs_clients' element={<MeilleursClientsPage />} />
         <Route path='/profil_etudiant' element={<Profil />} />
+
+        
+        <Route path='/acceuil_employe' element={<AcceuilE/>}/>
+        <Route path='/Stats' element={<Stats/>}/>
+        <Route path='/Consult' element={<Consult/>}/>
+        <Route path='/HistoriqueReclamation' element={<HistoriqueReclamation/>}/>
+        <Route path='/MiseJourM' element={<MiseJourM/>}/>
+        {/* <Route path='/' element={<AcceuilAdmin/>} />   */}
+
+        {/* <Route path='/' element={<AcceuilG />} /> */}
+        <Route path='/acceuil_gerant' element={<AcceuilG />} />
+        <Route path='/gestion_employe' element={<GestionEmployes />} />
+
+        <Route path='/acceuil_administrateur' element={<AcceuilG />} />
+        <Route path='/gestion_administrateur' element={<GestionEmployes />} />
+      
       </Routes>
     </Router>
   );
