@@ -1,0 +1,15 @@
+.header-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #685F4C; /* Couleur de fond ou autre style */
+  }
+  
+  .header-section img {
+    width: 100px;
+    border-radius: 50%;
+  }
+  
+
+  
